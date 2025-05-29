@@ -1,0 +1,53 @@
+$me-size: 30rem;
+
+@keyframes iGrow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: $me-size;
+  }
+}
+
+.me {
+  a-box:hover + a-box + a-box + a-box + &:after {
+    opacity: 1;
+    background-image: url("/images/me3.png");
+    filter: grayscale(0) saturate(10);
+  }
+
+  a-box:hover + a-box + a-box + &:after {
+    background-image: url("/images/me3.png");
+    opacity: 1;
+    filter: grayscale(0) hue-rotate(130deg) saturate(10);
+  }
+
+  a-box:hover + a-box + &:after {
+    opacity: 1;
+    background-image: url("/images/me3.png");
+    filter: grayscale(0) hue-rotate(280deg) saturate(10);
+  }
+
+  a-box:hover + &:after {
+    opacity: 1;
+    background-image: url("/images/me3.png");
+    filter: grayscale(0) hue-rotate(430deg) saturate(30);
+  }
+
+  animation-fill-mode: forwards;
+  animation-duration: 1500ms;
+  animation-name: iGrow;
+  background-size: $me-size * 0.6873 $me-size;
+  width: $me-size * 0.6873;
+  transition: 2s filter linear;
+
+
+
+  &:before {
+    background-image: url("/images/me.png");
+  }
+
+  &:after {
+    background-image: url("/images/me.png");
+  }
+}

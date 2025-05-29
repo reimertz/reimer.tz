@@ -1,0 +1,472 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" class="night-mode-off">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Where the web makes sense" />
+    <meta name="keywords" content="Pierre Reimertz Web Developer" />
+    <meta name="author" content="Piérre Reimertz" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 user-scalable=no"
+    />
+    <title>{title}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
+  </head>
+  <body>
+    <script type="text/javascript" is:inline>
+      ;(function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r
+        ;(i[r] =
+          i[r] ||
+          function () {
+            ;(i[r].q = i[r].q || []).push(arguments)
+          }),
+          (i[r].l = 1 * new Date())
+        ;(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0])
+        a.async = 1
+        a.src = g
+        m.parentNode.insertBefore(a, m)
+      })(
+        window,
+        document,
+        'script',
+        '//www.google-analytics.com/analytics.js',
+        'ga'
+      )
+
+      ga('create', 'UA-61798566-1', 'auto')
+      ga('send', 'pageview')
+    </script>
+
+    <slot />
+
+    <script type="module">
+      // Writer class
+      const timeoutMap = new Map()
+      timeoutMap.set('#', 50 / 2)
+      timeoutMap.set('@', 250 / 2)
+      timeoutMap.set(',', 350 / 2)
+      timeoutMap.set('-', 350 / 2)
+      timeoutMap.set('.', 500 / 2)
+      timeoutMap.set('?', 750 / 2)
+
+      class Writer {
+        constructor(elements, string) {
+          this.el = elements
+          this.s = string
+          this.isWritingLink = false
+        }
+
+        updateWriters(character) {
+          ;[].forEach.call(this.el, (element) => {
+            let oldElement = element
+            element = this.isWritingLink
+              ? element.querySelector('a:last-child')
+              : element
+
+            if (character === '@') return
+            else if (character === '#') {
+              element.innerHTML = element.innerHTML.slice(0, -1)
+              if (
+                oldElement.getAttribute('three-d-text') &&
+                oldElement.getAttribute('three-d-text').length > 0
+              ) {
+                oldElement.setAttribute(
+                  'three-d-text',
+                  oldElement.getAttribute('three-d-text').slice(0, -1)
+                )
+              }
+            } else if (character === '*') {
+              element.innerHTML += '<br>'
+              if (oldElement.getAttribute('three-d-text')) {
+                oldElement.setAttribute(
+                  'three-d-text',
+                  oldElement.getAttribute('three-d-text') + '\a'
+                )
+              }
+            } else if (character === '$') {
+              if (!this.isWritingLink) {
+                let link = document.createElement('a')
+                link.href = this.s.split('$')[0]
+                link.target = '_blank'
+                element.appendChild(link)
+                this.isWritingLink = true
+                this.s = this.s.substring(
+                  this.s.split('$')[0].length + 1,
+                  this.s.length
+                )
+              } else {
+                this.isWritingLink = false
+              }
+            } else {
+              element.innerHTML += character
+              if (oldElement.getAttribute('three-d-text') !== null) {
+                oldElement.setAttribute(
+                  'three-d-text',
+                  oldElement.getAttribute('three-d-text') + character
+                )
+              }
+            }
+          })
+        }
+
+        writer(beQuick) {
+          let text, msDelay
+
+          if (this.s.length === 0) return this.isDone()
+
+          text = this.s.substring(0, 1)
+          this.s = this.s.substring(1, this.s.length)
+          this.updateWriters(text)
+
+          if (beQuick) return this.writer(true)
+
+          msDelay = timeoutMap.get(text) || Math.random() * 150
+
+          return requestAnimationFrame(() => {
+            setTimeout(() => {
+              this.writer()
+            }, msDelay)
+          })
+        }
+
+        updateLastRead() {
+          localStorage.setItem('read-everything-at', Date.now())
+        }
+
+        get getLastRead() {
+          return parseInt(localStorage.getItem('read-everything-at')) || 0
+        }
+
+        isDone() {
+          document.body.classList.add('intro-is-done')
+          this.updateLastRead()
+        }
+
+        start() {
+          if (this.getLastRead + 5000 < Date.now()) {
+            this.updateLastRead()
+            this.writer(true)
+            this.isDone()
+          } else {
+            this.writer()
+          }
+        }
+      }
+
+      // LazyLoader class
+      class LazyLoader {
+        constructor({ lines, throttle, checkOnStart, fakeSlowness }) {
+          this.lines = lines || 5
+          this.throttle = throttle || 500
+          this.checkOnStart = checkOnStart || false
+          this.fakeSlowness = fakeSlowness || false
+          this.pageOffsetTop = 0
+          this.windowHeight = 0
+          this.images = []
+          this.isRunning = false
+          this.update()
+        }
+
+        refreshImages() {
+          this.images = Array.from(document.querySelectorAll('[data-lazy]'))
+          console.log('LazyLoader found', this.images.length, 'images to load')
+        }
+
+        isInViewPort(element) {
+          const rect = element.getBoundingClientRect()
+          const threshold = 300 // Fixed small threshold
+          // Only load when element is actually close to being visible
+          return rect.top <= window.innerHeight + threshold && rect.bottom >= 0
+        }
+
+        isElementLoaded(element) {
+          return element.getAttribute('src') || element.style.backgroundImage
+        }
+
+        loadElement(element) {
+          if (this.shouldBeFakeSlowed(element)) {
+            this.fakeLoad(element)
+          } else {
+            this.fastLoad(element)
+          }
+        }
+
+        fastLoad(element) {
+          const lazyImg = element.getAttribute('data-lazy')
+          if (lazyImg) {
+            console.log('Loading image:', lazyImg)
+            element.setAttribute('data-lazy-status', 'loading')
+            element.setAttribute('src', lazyImg)
+            element.removeAttribute('data-lazy')
+            element.onload = () => {
+              element.removeAttribute('data-lazy-status')
+              console.log('Image loaded:', lazyImg)
+            }
+            element.onerror = () => {
+              element.removeAttribute('data-lazy-status')
+              console.error('Failed to load image:', lazyImg)
+            }
+          }
+        }
+
+        shouldBeFakeSlowed(element) {
+          return (
+            this.fakeSlowness &&
+            Math.random() <= (this.fakeSlowness.percentageOfImages || 0)
+          )
+        }
+
+        fakeLoad(element) {
+          if (!this.shouldBeFakeSlowed(element)) return this.fastLoad(element)
+
+          const delay = this.fakeSlowness.delayBeforeFetch()
+          console.log('Fake loading with delay:', delay + 'ms')
+          element.setAttribute('data-lazy-status', 'loading')
+          setTimeout(() => this.fastLoad(element), delay)
+        }
+
+        update() {
+          this.windowHeight = window.innerHeight
+          this.pageOffsetTop =
+            window.pageYOffset || document.documentElement.scrollTop
+        }
+
+        check() {
+          this.update()
+          console.log('LazyLoader checking', this.images.length, 'images')
+          this.images.forEach((image, index) => {
+            if (!this.isElementLoaded(image)) {
+              const rect = image.getBoundingClientRect()
+              const inViewport = this.isInViewPort(image)
+              console.log(
+                `Image ${index}: top=${Math.round(rect.top)}, inViewport=${inViewport}`
+              )
+              if (inViewport) {
+                this.loadElement(image)
+              }
+            }
+          })
+        }
+
+        listen() {
+          let scrollTimeout
+          this._listener = () => {
+            if (scrollTimeout) return
+            scrollTimeout = setTimeout(() => {
+              this.check()
+              scrollTimeout = null
+            }, this.throttle)
+          }
+          window.addEventListener('scroll', this._listener, { passive: true })
+          window.addEventListener('resize', this._listener, { passive: true })
+        }
+
+        unlisten() {
+          window.removeEventListener('scroll', this._listener)
+          window.removeEventListener('resize', this._listener)
+        }
+
+        start() {
+          this.isRunning = true
+          this.refreshImages()
+          this.listen()
+          if (this.checkOnStart) {
+            this.check()
+          }
+        }
+
+        stop() {
+          this.isRunning = false
+          this.unlisten()
+        }
+      }
+
+      // Translater class
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
+      class Translater {
+        constructor(element, xRotation, yRotation) {
+          this.xRotation = xRotation
+          this.yRotation = yRotation
+          this.el = element
+          this.throttler = false
+          this.moveEvent = isMobile ? 'touchmove' : 'mousemove'
+
+          this.handleScroll = this.handleScroll.bind(this)
+          this.handleMove = this.handleMove.bind(this)
+          this.handleEvent = this.handleEvent.bind(this)
+        }
+
+        handleScroll(scrollY) {
+          let scrolledPercentage =
+              (scrollY / document.body.getBoundingClientRect().height) *
+              this.xRotation,
+            x = scrolledPercentage / 2 - this.xRotation,
+            y = this.yRotation - scrolledPercentage
+
+          this.el.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`
+        }
+
+        handleMove(clientX, clientY) {
+          let x = (1 - clientY / window.innerHeight) * -1 * this.xRotation,
+            y = (clientX / window.innerWidth) * this.yRotation
+
+          this.el.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`
+        }
+
+        handleEvent(event) {
+          if (this.throttler) return
+
+          this.throttler = setTimeout(() => {
+            this.throttler = false
+            requestAnimationFrame(() => {
+              if (isMobile) this.handleScroll(window.scrollY)
+              else this.handleMove(event.clientX, event.clientY)
+            })
+          }, 50)
+        }
+
+        start() {
+          document.body.addEventListener(this.moveEvent, this.handleEvent)
+        }
+
+        stop() {
+          document.body.removeEventListener(this.moveEvent, this.handleEvent)
+        }
+      }
+
+      // CursorFriend class
+      class CursorFriend {
+        constructor({ selector }) {
+          this.selector = selector
+          this._elements = [].slice.call(
+            document.querySelectorAll(this.selector)
+          )
+
+          this.onEnter = this.onEnter.bind(this)
+          this.onLeave = this.onLeave.bind(this)
+        }
+
+        start() {
+          if (isMobile) return
+          this._elements.map((element) => {
+            element.addEventListener('mouseenter', this.onEnter)
+            element.addEventListener('mouseleave', this.onLeave)
+          })
+        }
+
+        onEnter(event) {
+          document.body.setAttribute('data-project-is-hovered', 'true')
+        }
+
+        onLeave(event) {
+          document.body.setAttribute('data-project-is-hovered', 'false')
+        }
+
+        stop() {
+          this._elements.map((element) => {
+            element.removeEventListener('mouseenter', this.onEnter)
+            element.removeEventListener('mouseleave', this.onLeave)
+          })
+        }
+      }
+
+      // NightMode class
+      class NightMode {
+        constructor() {
+          this.isNightMode = false
+          this.toggle = document.querySelector('[data-night-mode-toggle]')
+          this.htmlElement = document.documentElement
+
+          this.handleClick = this.handleClick.bind(this)
+        }
+
+        handleClick(event) {
+          event.preventDefault()
+          this.isNightMode = !this.isNightMode
+
+          if (this.isNightMode) {
+            this.htmlElement.classList.remove('night-mode-off')
+            this.htmlElement.classList.add('night-mode-on')
+            this.toggle.innerHTML = 'night-mode [✓]'
+            this.toggle.setAttribute('three-d-text', 'night-mode [✓]')
+          } else {
+            this.htmlElement.classList.remove('night-mode-on')
+            this.htmlElement.classList.add('night-mode-off')
+            this.toggle.innerHTML = 'night-mode [x]'
+            this.toggle.setAttribute('three-d-text', 'night-mode [x]')
+          }
+
+          console.log('Night mode:', this.isNightMode ? 'ON' : 'OFF')
+        }
+
+        start() {
+          if (this.toggle) {
+            this.toggle.addEventListener('click', this.handleClick)
+            console.log('Night mode toggle initialized')
+          } else {
+            console.warn('Night mode toggle element not found')
+          }
+        }
+
+        stop() {
+          if (this.toggle) {
+            this.toggle.removeEventListener('click', this.handleClick)
+          }
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener('DOMContentLoaded', function () {
+        const introText = `hi, my name is piérre reimertz.
+
+i am a developer@@@#########musician@@@########coder, designer, fake-it-til-you-make-it#######################.. im just piérre, cto at $https://hifilabs.co$hifi labs$.
+
+creativity is my addiction.
+
+$http://github.com/reimertz$github$ | $http://twitter.com/reimertz$twitter$ | $https://www.linkedin.com/in/reimertz$linkedin$ | $mailto:pierre.reimertz@gmail.com$hire me$ `
+
+        const writer = new Writer(
+          document.querySelectorAll('.writer'),
+          introText
+        )
+        const translater = new Translater(
+          document.querySelector('.tre-d'),
+          10,
+          10
+        )
+        const ll = new LazyLoader({
+          lines: 2,
+          throttle: 500,
+          checkOnStart: false,
+          fakeSlowness: {
+            delayBeforeFetch: () => {
+              return Math.random() * 3500 + 1000
+            },
+            percentageOfImages: 0.3,
+          },
+        })
+        const cF = new CursorFriend({ selector: '.project' })
+        const nightMode = new NightMode()
+
+        // Start everything
+        requestAnimationFrame(() => {
+          writer.start()
+          translater.start()
+          ll.start()
+          cF.start()
+          nightMode.start()
+        })
+      })
+    </script>
+  </body>
+</html>

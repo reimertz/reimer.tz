@@ -1,131 +1,89 @@
 //Creator Pierre Reimertz MIT ETC ETC
 
 export default class LazyLoader {
-
-  constructor({
-    attribute = 'data-lazy',
-    offset = (document.body.getBoundingClientRect().height/2),
-    lines = 3,
-    throttle = 350,
-    autoStart = true,
-    checkOnStart = true,
-    fakeSlowness = false,
-    placeholderImages = [
-    /* wide   */  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvYAAAQAAQMAAACwNI9dAAAAA1BMVEUb/5DUIh99AAAAdUlEQVR42u3BAQ0AAADCoPdP7ewBFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4APAAGN6DpwAAAAAElFTkSuQmCC',
-    /* tall   */  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAAA1BMVEUb/5DUIh99AAAAGklEQVR4Ae3BAQEAAAQDMP1TiwHfVgAAwHoNC7gAASist30AAAAASUVORK5CYII=',
-    /* square */  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWAQMAAABelSeRAAAAA1BMVEUb/5DUIh99AAAAHElEQVR4Xu3AAQkAAADCMPunNsdhWwoAAAAAABwW2gABlO2L2AAAAABJRU5ErkJggg=='
-  ]})
-  {
-    this.attribute = attribute
-    this.autoStart = autoStart
-    this.checkOnStart = checkOnStart
-    this.offset = offset
+  constructor({lines, throttle, checkOnStart, fakeSlowness}) {
     this.lines = lines
     this.throttle = throttle
+    this.checkOnStart = checkOnStart
     this.fakeSlowness = fakeSlowness
-    this.placeholderImages = placeholderImages
+    this.pageOffsetTop = 0
+    this.windowHeight = 0
+    this.images = document.querySelectorAll('[data-lazy]')
+    this.isRunning = false
+    this.update()
+  }
 
-    this._elements          = [].slice.call(document.querySelectorAll(`[${ this.attribute }]`))
-    this._queue             = []
-    this._listener          = false
-    this._throttler         = false
+  isInViewPort (element) {
+    if (element.offsetTop < (this.pageOffsetTop + this.windowHeight + (this.lines * this.fakeSlowness))) {
+      return true
+    }
+    return false
+  }
 
-    this.onLoad = this.onLoad.bind(this)
+  isElementLoaded (element) {
+    return element.getAttribute('src') || element.style.backgroundImage
+  }
 
-    if (this.autoStart) {
-      this.start()
+  loadElement (element) {
+    if (this.fakeSlowness) {
+      this.fakeLoad(element)
+    }
+    else {
+      this.fastLoad(element)
     }
   }
 
-  start() {
-    if (!!this._listener) return
-    if (this.checkOnStart) this.check()
-
-    this._elements.map(element => {
-      if (!element.src || element.src === '') {
-        element.src = this.placeholderImages[Math.floor(Math.random()*(this.placeholderImages.length-1) + 0.5)]
-      }
-    })
-
-    this._listener = event => {this.check()}
-
-    document.addEventListener('scroll', this._listener, false)
+  fastLoad(element) {
+    let lazyImg = element.getAttribute('data-lazy')
+    element.setAttribute('src', lazyImg)
+    element.removeAttribute('data-lazy')
   }
 
-  stop() {
-    document.removeEventListener('scroll', this._listener)
-    this._listener = false
-    this._throttler = false
+  shouldBeFakeSlowed(element) {
+    return Math.random() <= (this.fakeSlowness.percentageOfImages || 0)
+  }
+
+  fakeLoad(element) {
+    if (!this.shouldBeFakeSlowed(element)) return this.fastLoad(element)
+
+    setTimeout(() => this.fastLoad(element), this.fakeSlowness.delayBeforeFetch())
+  }
+
+  update() {
+    this.windowHeight = window.innerHeight
+    this.pageOffsetTop = window.pageYOffset || document.documentElement.scrollTop
   }
 
   check() {
-    if (this._throttler) return
-    if (this._elements.length === 0) return this.stop()
+    this.update()
 
-    this._throttler = setTimeout(() => {
-      this._throttler = false
-
-      this._elements = this._elements.map(element => {
-        if (element === false) return false
-        if (element.nodeName !== "IMG") return false
-
-        if ((element.getBoundingClientRect().top - this.offset)  < document.body.scrollTop) {
-          this.queue(element)
-          return false
-        }
-
-        else {
-          return element
-        }
-      })
-
-      this._elements = this._elements.filter(element => {
-        if (element) return element
-      })
-
-    }, this.throttle)
-  }
-
-  queue(element) {
-    this._queue.push(element)
-
-    if (this._queue.length <= this.lines) {
-      this.load(element)
-    }
-  }
-
-  load(element) {
-    this.setStatus(element, 'loading')
-
-    element.addEventListener('load', this.onLoad, false)
-
-    if (!!this.fakeSlowness && (Math.random() <= (this.fakeSlowness.percentageOfImages))) {
-      setTimeout(() => {
-        element.src = element.getAttribute(this.attribute)
-      }, this.fakeSlowness.delayBeforeFetch())
-    }
-    else {
-      element.src = element.getAttribute(this.attribute)
-    }
-  }
-
-  onLoad(event) {
-    let nextElement
-    let loadedElement = event.target
-
-    loadedElement.removeEventListener('load', this.onLoad, false)
-    this.setStatus(loadedElement, 'loaded')
-
-    this._queue = this._queue.filter(queuedElement => {
-      if (queuedElement !== loadedElement) return queuedElement
+    this.images.forEach((image, index) => {
+      if (!this.isElementLoaded(image) && this.isInViewPort(image)) {
+        this.loadElement(image)
+      }
     })
-
-    nextElement = this._queue.shift()
-
-    if (!!nextElement) this.load(nextElement)
   }
 
-  setStatus(element, status) {
-    element.setAttribute(this.attribute + '-status', status)
+  listen() {
+    this._listener = event => {this.check()}
+    window.addEventListener('scroll', this._listener)
+  }
+
+  unlisten() {
+    window.removeEventListener('scroll', this._listener)
+  }
+
+  start() {
+    this.isRunning = true
+    this.listen()
+
+    if (this.checkOnStart) {
+      this.check()
+    }
+  }
+
+  stop() {
+    this.isRunning = false
+    this.unlisten()
   }
 }

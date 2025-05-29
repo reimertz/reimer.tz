@@ -1,0 +1,68 @@
+@keyframes nightMode {
+  0% {
+    background-color: white;
+  }
+
+  100% {
+    background-color: black;
+  }
+}
+
+@keyframes nightModeOff {
+  0% {
+    background-color: black;
+  }
+
+  100% {
+    background-color: white;
+  }
+}
+
+.night-mode {
+  display: block;
+  opacity: 1;
+  float: right;
+  padding-top: 0;
+  margin-top: 0;
+  color: $red;
+  animation-delay: 2000ms;
+  transition: 1500ms;
+  cursor: pointer;
+  z-index: 1000;
+  position: relative;
+}
+
+[class*="night-mode-o"] {
+  animation-direction:forwards;
+  animation-fill-mode: forwards;
+  animation-duration: 1500ms;
+}
+
+.night-mode-off {
+  animation-name: nightModeOff;
+
+  .night-mode {
+    color: $red;
+  }
+}
+
+.night-mode-on {
+  animation-name: nightMode;
+
+  p-3d:not(.night-mode), span {
+    color: white;
+  }
+
+  img-3d:after {
+   filter: invert(1);
+  }
+
+  :before {
+   filter: invert(1);
+  }
+
+  .night-mode {
+    color: $green;
+  }
+}
+

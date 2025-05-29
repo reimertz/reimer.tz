@@ -1,0 +1,29 @@
+img-3d {
+  display: block;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-size: inherit;
+    content: '';
+    filter: blur(1px);
+    transform: translateZ(-80rem);
+    opacity: 0.07;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-size: inherit;
+    content: '';
+  }
+}

@@ -1,0 +1,27 @@
+plane-3d {
+  display: block;
+  width: 2000px;
+  margin-left: -500px;
+  padding: 5% 500px;
+  background: rgba(red, 0.75);
+  position: relative;
+
+  &:before, &:after {
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &:after {
+    left: 0;
+    top: 0;
+    filter: blur(1px);
+    width: 3000px;
+
+    height: 100%;
+    content: '';
+    position: absolute;
+    transform: translateZ(-80rem);
+    opacity: 0.03;
+    background: black;
+  }
+}

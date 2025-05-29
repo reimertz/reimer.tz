@@ -1,0 +1,146 @@
+@import '../components/3d-me';
+@import '../components/lazy-loader';
+
+
+main {
+  display: block;
+  position: relative;
+  transform: rotateX(-10deg) rotateY(10deg);
+  transition: 200ms;
+
+}
+
+header {
+  .me {
+    display: block;
+  }
+
+  .writer {
+    display: block;
+    white-space: pre-wrap;
+  }
+  p {
+    max-width: 50rem;
+  }
+}
+
+.projects {
+  padding: 0;
+  text-align: left;
+  position: relative;
+
+  ol {
+    display: block;
+  }
+
+  .project {
+    display: inline-block;
+    position: relative;
+    margin: 2rem 2rem 2rem 0;
+
+    body[data-project-is-hovered="true"] &:not(:hover) {
+      :before, span  {
+        opacity: 0;
+      }
+      img {
+        opacity: 0.1;
+      }
+    }
+
+    &:before {
+      pointer-events: none;
+      z-index: -1;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: translateZ(-80rem);
+      content:'';
+      background: black;
+      opacity: 0.045;
+      transition: opacity 250ms;
+
+      @include small {
+        width: 50%;
+      }
+    }
+
+    &:hover:before {
+      opacity: 0.09;
+    }
+
+    &:hover {
+      z-index: 10;
+
+      span {
+        opacity: 1;
+      }
+      img {
+        opacity: 1;
+      }
+    }
+
+    img {
+      transition: opacity 250ms;
+      height: 175px;
+      display: inline-block;
+      z-index: 0;
+      opacity: 0.65;
+      //transition: opacity 200ms filter 2000ms;
+    }
+
+    span {
+      padding: 1rem;
+      top: 100%;
+      pointer-events: none;
+      background: rgba(black,1);
+      color: white;
+      display: block;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 250ms;
+      //transition: 250ms;
+      font-size: 1.2rem;
+
+      b {
+        color: $green;
+        font-size: 2rem;
+      }
+    }
+
+    @include small {
+      display: block;
+
+      a {
+        display: inline;
+      }
+
+      img {
+        max-width: 50%;
+        height: auto;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      span {
+        position: absolute;
+        opacity: 1;
+        color: black;
+        background: transparent;
+        left: inherit !important;
+        width: 50%;
+        top: inherit !important;
+        vertical-align: top;
+        display: inline;
+      }
+    }
+  }
+  @include small {
+
+  }
+}
+

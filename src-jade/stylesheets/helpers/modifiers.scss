@@ -1,0 +1,30 @@
+.green {
+  color: $green;
+
+  &-bg {
+    background-color: $green;
+    color: white;
+  }
+}
+
+.red {
+  color: $red;
+
+  &-bg {
+    background-color: $red;
+    color: white;
+  }
+}
+
+.tre-d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  & *, *:before, *:after {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+}
+
+
+

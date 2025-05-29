@@ -1,60 +1,57 @@
 //Creator Pierre Reimertz MIT ETC ETC
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-
-
 export default class Translater {
 
-  constructor(element, xRotation, yRotation) {
-    this.xRotation = xRotation
-    this.yRotation = yRotation
-    this.el = element
-    this.throttler = false
-    this.moveEvent = isMobile ? 'touchmove' : 'mousemove'
+  constructor(element, x = 10, y = 10) {
+    this.element = element
+    this.x = x
+    this.y = y
+    this.rotateX = 0
+    this.rotateY = 0
+    this._listener = false
 
-    this.handleScroll = this.handleScroll.bind(this)
-    this.handleMove = this.handleMove.bind(this)
-    this.handleEvent = this.handleEvent.bind(this)
+    this.onMouseEnter = this.onMouseEnter.bind(this)
+    this.onMouseMove = this.onMouseMove.bind(this)
+    this.onMouseLeave = this.onMouseLeave.bind(this)
   }
 
-  handleScroll(scrollY){
-    let scrolledPercentage = (scrollY / document.body.getBoundingClientRect().height) * this.xRotation,
-        x = (scrolledPercentage/2) - this.xRotation,
-        y = this.yRotation - scrolledPercentage
-
-    this.el.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`
+  onMouseEnter() {
+    this.element.classList.add('isTranslataring')
   }
 
-  handleMove(clientX, clientY){
-    let x = ((1 - (clientY / window.innerHeight)) * -1) * this.xRotation,
-        y = (clientX / window.innerWidth) * this.yRotation
+  onMouseMove(event) {
+    let rect = this.element.getBoundingClientRect()
+    let x = event.clientX - rect.left
+    let y = event.clientY - rect.top
 
-    this.el.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`
+    this.rotateY = (-1/5) * x + 20
+    this.rotateX = (4/30) * y - 20
+
+    this.element.style.WebkitTransform = `perspective(300px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg)`
+    this.element.style.transform = `perspective(300px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg)`
   }
 
-  handleEvent(event) {
-    if(this.throttler) return
-
-    this.throttler = setTimeout(() => {
-
-      this.throttler = false
-      requestAnimationFrame(() => {
-        if(isMobile) this.handleScroll(window.scrollY)
-        else         this.handleMove(event.clientX, event.clientY)
-      })
-    }, 50)
-
+  onMouseLeave() {
+    this.element.classList.remove('isTranslataring')
+    this.element.style.WebkitTransform = 'perspective(300px) rotateX(0deg) rotateY(0deg)'
+    this.element.style.transform = 'perspective(300px) rotateX(0deg) rotateY(0deg)'
   }
 
   start() {
-    document.body.addEventListener(this.moveEvent, this.handleEvent)
+    if (!!this._listener) return
+
+    this.element.addEventListener('mouseenter', this.onMouseEnter, false)
+    this.element.addEventListener('mousemove', this.onMouseMove, false)
+    this.element.addEventListener('mouseleave', this.onMouseLeave, false)
+
+    this._listener = true
   }
 
   stop() {
-    document.body.removeEventListener(this.moveEvent, this.handleEvent)
-  }
+    this.element.removeEventListener('mouseenter', this.onMouseEnter, false)
+    this.element.removeEventListener('mousemove', this.onMouseMove, false)
+    this.element.removeEventListener('mouseleave', this.onMouseLeave, false)
 
-  pause() {
-    this.stop()
+    this._listener = false
   }
 }

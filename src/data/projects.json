@@ -1,0 +1,291 @@
+[
+  {
+    "title": "When I Go",
+    "description": "A cover of Slow Club's amazing song.",
+    "url": "/when-i-go",
+    "image": "/images/projects/slowclub-cover.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "FlagTimes",
+    "description": "The macOS timezone app for anyone working in multiple timezones.",
+    "url": "http://flagtimes.com",
+    "image": "/images/projects/flagtimes-site.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "vincent.ai",
+    "description": "create high resolution art from your photos using Generative Adversarial Networks.",
+    "url": "http://vincent.ai",
+    "image": "/images/projects/vincent.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "aSocial",
+    "description": "All the social platforms in one place where your privacy is protected.",
+    "url": "http://asocial.ly",
+    "image": "/images/projects/asocial_black.png",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "anolog.org",
+    "description": "the anonymous, fully encrypted and open-sourced blogging platform.",
+    "url": "https://anolog.org",
+    "image": "/images/projects/anolog.png",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "wcal",
+    "description": "a terminal-based time-tracker derived from ncal.",
+    "url": "https://github.com/reimertz/wcal",
+    "image": "/images/projects/wcal.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "git.chat",
+    "description": "a open-sourced messaging system incorporated into your git repository.",
+    "url": "http://git.chat",
+    "image": "/images/projects/git-chat.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "nordic.js",
+    "description": "i gave a lightning talk at Nordic.js about cross-browser privacy vulnerability.",
+    "url": "https://youtu.be/LHu8rwLK5sA",
+    "image": "/images/projects/nordic_js.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "opentracing.io",
+    "description": "collaboration with my lovely girlfriend. she designed, I coded.",
+    "url": "http://opentracing.io",
+    "image": "/images/projects/opentracing.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "lagom",
+    "description": "simplistic presentation generator",
+    "url": "http://github.com/reimertz/lagom",
+    "image": "/images/projects/lagom.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "write-something",
+    "description": "just me messing around with observable sequences",
+    "url": "http://jsbin.com/gozelij/14",
+    "image": "/images/projects/write-something.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "push",
+    "description": "Deploy static content easily, freely and anonymously",
+    "url": "http://github.com/reimertz/push",
+    "image": "/images/projects/push.png",
+    "target": "_blank",
+    "color": "",
+    "style": "background: white;"
+  },
+  {
+    "title": "685byte synth",
+    "description": "I wanted to create a synth below 1kb with JS only. I succeeded.",
+    "url": "http://jsbin.com/palobo/52/edit?js,output",
+    "image": "/images/projects/685bytesynth.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "Country Parrots",
+    "description": "one party parrot for each country",
+    "url": "http://countryparrots.com/",
+    "image": "/images/projects/parrot_big.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "Ampli.fi",
+    "description": "A twitch-like service for musicians which I co-founded.",
+    "url": "https://www.ampli.fi",
+    "image": "/images/projects/amplifi.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "San Francisco Music Alliance",
+    "description": "helped a friend design+implement their CMS using prose + github pages. no more wordpress.",
+    "url": "http://sfmusicalliance.com/",
+    "image": "/images/projects/sfma.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "trump.css",
+    "description": "if you want to add a little bit of Trump on your homepage",
+    "url": "http://trumpcss.com/",
+    "image": "/images/projects/trump.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "Different Perspectives",
+    "description": "interactive Virtual Reality demos using Google Cardboard to experience situations from Different Perspectives.",
+    "url": "http://differentperspectiv.es",
+    "image": "/images/projects/different-perspectives.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "brand-colors",
+    "description": "a brand color collection available in sass, less, stylus and css",
+    "url": "http://brand-colors.com",
+    "image": "/images/projects/brand-colors.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "Hack for Refugees",
+    "description": "nobody can do everything, but everybody can do something",
+    "url": "http://hackforrefugees.com",
+    "image": "/images/projects/hackforrefugees.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "HeartCoins",
+    "description": "currently building a crypto-currency based on good will",
+    "url": "http://heartcoins.org",
+    "image": "/images/projects/heartcoins.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "bandpage/artists",
+    "description": "i worked at bandpage(acquired by youtube) for 3.5 years",
+    "url": "http://bandpage artists",
+    "image": "/images/projects/bandpage-1.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "bandpage/spotify",
+    "description": "i did everything from helping out with engineering, design and content. also turned the gig room to the next level.",
+    "url": "http://bandpage.com/partners/spotify",
+    "image": "/images/projects/bandpage-2.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "gyver",
+    "description": "a swiz army knife for all the terminal lovers out there",
+    "url": "http://github.com/reimertz/gyver",
+    "image": "/images/projects/gyver.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "feel beats",
+    "description": "a hardware hack that gives you the feeling of being a drummer",
+    "url": "http://github.com/reimertz/feel-beats",
+    "image": "/images/projects/feelbeats.jpg",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "flag colors",
+    "description": "a flag color collection available in sass, less, stylus and css",
+    "url": "http://flag-colors.com",
+    "image": "/images/projects/flag-colors.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "pop-wars",
+    "description": "a popup-based multiplayer game",
+    "url": "",
+    "image": "/images/projects/popwars.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "rickrolled.js",
+    "description": "soon to be released",
+    "url": "https://twitter.com/reimertz/status/693152132875304960",
+    "image": "/images/projects/nevah.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "letswork",
+    "description": "a CLI that helps you focus",
+    "url": "http://github.com/reimertz/letswork",
+    "image": "/images/projects/letswork.png",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "dynosrc",
+    "description": "serve differential updates to users on the fly",
+    "url": "http://www.dynosrc.com/",
+    "image": "/images/projects/dynosrc.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "nes-over-png",
+    "description": "a noscript-compatible twitch-plays-zelda",
+    "url": "http://nes-o-png.herokuapp.com",
+    "image": "/images/projects/nes-o-png.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "shorten.li",
+    "description": "a free client-side url-shortener, say whaat?",
+    "url": "http://shorten.li",
+    "image": "/images/projects/shorten-js.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "swear.at",
+    "description": "this is for you Jashan",
+    "url": "http://swear.at",
+    "image": "/images/projects/swear-at.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "plus.js",
+    "description": "a lightweight, templating engine that is all about speed.",
+    "url": "http://github.com/reimertz/plus.js",
+    "image": "/images/projects/plus-js.png",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "purple",
+    "description": "Just a hack",
+    "url": "http://github.com/reimertz/purple",
+    "image": "/images/projects/purple.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "vasktrafik",
+    "description": "Did you know that 1MB equals 5.9 Wh?!",
+    "url": "http://vasktrafik.se",
+    "image": "/images/projects/vasktrafik.jpg",
+    "target": "_blank",
+    "color": ""
+  }
+]

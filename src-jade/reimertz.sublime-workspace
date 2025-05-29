@@ -1,0 +1,1522 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"cons",
+				"console.log()"
+			],
+			[
+				"margon",
+				"margin-top"
+			],
+			[
+				"bo-",
+				"box-colors"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"Track",
+				"Tracker.autorun	Meteor: Tracker.autorun(runFunc)"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"Session",
+				"Session.set	Meteor: Session.set(key, value)"
+			],
+			[
+				"block",
+				"block-size-small"
+			],
+			[
+				"sma",
+				"block-size-small"
+			],
+			[
+				"e",
+				"event	Meteor: Add a new event item"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"block-",
+				"block-size-big"
+			],
+			[
+				"current",
+				"currentTarget	Event"
+			],
+			[
+				"q",
+				"querySelector(${0:selectors})	Element"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"animation",
+				"animation-duration"
+			],
+			[
+				"ani",
+				"animation-name"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"backg",
+				"background-size"
+			],
+			[
+				"functi",
+				"function(){\n	$0\n})();	(function(){\n	$0\n})();"
+			],
+			[
+				"padi",
+				"padding-bottom"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"no-",
+				"no-repeat"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"getElement",
+				"getElementById(${0:id})	Element"
+			],
+			[
+				"flex-",
+				"flex-direction"
+			],
+			[
+				"mari",
+				"margin-left"
+			],
+			[
+				"border",
+				"border-left"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"list",
+				"list-style-position"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"padding",
+				"apple-padding-before"
+			],
+			[
+				"list-",
+				"list-style-type"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"get",
+				"getAttribute"
+			],
+			[
+				"i",
+				"inline"
+			],
+			[
+				"l",
+				"line-height"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"header",
+				"headerFunction"
+			],
+			[
+				"thr",
+				"threshold"
+			],
+			[
+				"load",
+				"loadPortraitImage"
+			],
+			[
+				"render",
+				"renderHeader"
+			],
+			[
+				"rnd",
+				"renderHeader"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"con",
+				"contactForm"
+			],
+			[
+				"bower",
+				"bower_components"
+			],
+			[
+				"le",
+				"letter-spacing"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"word",
+				"word-spacing"
+			],
+			[
+				"the",
+				"thefirst"
+			],
+			[
+				"string",
+				"String"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"getElements",
+				"getElementsByClassName(${0:names})	Element"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"wait",
+				"waitForSeconds	*(seconds)"
+			],
+			[
+				"enabl",
+				"enable	AnisotropicFiltering.*"
+			],
+			[
+				"if",
+				"if	if"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"_passw",
+				"_passwordField"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"set s Bab",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"set java",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"next",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"set sy next",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"packup",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Ja",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"set sy javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set javascr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"se javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set h",
+				"Set Syntax: HTML"
+			],
+			[
+				"set syn java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"set syn diff",
+				"Set Syntax: Diff"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"se",
+				"Set Syntax: HTML"
+			],
+			[
+				"set ",
+				"Set Syntax: HTML"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"set html",
+				"Set Syntax: HTML"
+			],
+			[
+				"set sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"scss",
+				"Set Syntax: CSS"
+			],
+			[
+				"se css",
+				"Set Syntax: CSS"
+			],
+			[
+				"synt java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"se jav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"se javsc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"jav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"set ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Paack",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"packi",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 710.0
+	},
+	"console":
+	{
+		"height": 627.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/reimertz/git/ipmjs/readme.md",
+		"/Users/reimertz/git/reimertz.2.0/src/templates/layouts/default.jade",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/FlowPlayer.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/variables.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/components/VideoPlayer.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/Components/VideoStream.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/css/styles.css",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/index_bundle.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/ViewStream.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/js/ViewStream.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/components/Bio.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/Chat.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/css/landingPage/custom.css",
+		"/Users/reimertz/TheHobby/joni-backend/README.md",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/components/Cover.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/modules/button.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/Navbar.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/semanticOverrides.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/Components/chat.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/Components/navbar.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/Components/VideoPlayer.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/js/LoginLanding.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/css/semantic.min.css",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/base.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/templates/view.html",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/js/chat.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/templates/index.html",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/components/button.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/config/routes.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/stylesheets/components/header.scss",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/webpack.config.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/index_bundle.css",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/chat.py",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/views.py",
+		"/Users/reimertz/TheHobby/joni-backend/svc/chat/views.py",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/LikeComponent.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/Header.js",
+		"/Users/reimertz/TheHobby/joni-backend/svc/main/static/react/app/components/LiveLikes.js",
+		"/Users/reimertz/TheHobby/joni-backend/.git/COMMIT_EDITMSG",
+		"/Users/reimertz/Re",
+		"/Users/reimertz/TheHobby/chat/src/scripts/index.js",
+		"/Users/reimertz/git/vasktrafik-old/index.html",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/chat.py",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/config/routes.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/ViewStream.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/views.py",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/VideoPlayer.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/templates/login.html",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/templates/index.html",
+		"/Users/reimertz/work/thehobby/streaming/svc/chat/views.py",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/UserProfile.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/PhotoUpload.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/Chat.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/Home.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/styles.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/components/Main.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/editProfile.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/fix_me.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/js/skel-viewport.min.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/templates/userProfile.html",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/bootstrap.min.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/strap.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/templates/base.html",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/skeleton.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/css/main.css",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/webpack.config.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/App.js",
+		"/Users/reimertz/work/thehobby/streaming/svc/main/static/react/app/styles/editProfile.css",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/Translater.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/common/headings.scss",
+		"/Users/reimertz/git/reimertz.2.0/templates/partials/box.jade",
+		"/Users/reimertz/git/reimertz.2.0/templates/index.jade",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/views/home.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/Rickrolled.js",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/CursorFriend.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/3d-img.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/main-home.js",
+		"/Users/reimertz/git/reimertz.2.0/node_modules/fstream/lib/writer.js",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/Writer.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/builder.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/helpers/mixins.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/common/elements.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/3d-paragraph.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/3d-plane.scss",
+		"/Users/reimertz/git/reimertz.2.0/layout/default.jade",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/3d-me.scss",
+		"/var/folders/pg/tsyc1gl95130v2blzq124d540000gp/T/zshlBFpcX",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/LazyLoader.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/lazy-loader.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/libs/Echo.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/components/3d-box.scss",
+		"/Users/reimertz/git/reimertz.2.0/.build/scripts/main-home.bundle.js",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/helpers/modifiers.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/libs/echo.min.js",
+		"/Users/reimertz/git/reimertz.2.0/src/CNAME",
+		"/Users/reimertz/git/reimertz.2.0/src/projects.md",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/modules/customScripts.js",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/libs/customElements.js",
+		"/Users/reimertz/git/reimertz.2.0/.build/stylesheets/styles.css",
+		"/Users/reimertz/git/reimertz.2.0/.build/stylesheets/builder.css",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/common/3d-img.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/common/3d-plane.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/_common/headings.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/_common/3d-box.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/_views/home.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/_common/elements.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/common/3d-box.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/styles.scss",
+		"/Users/reimertz/git/reimertz.2.0/src/stylesheets/libs/normalize.css",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/main-posts.js",
+		"/Users/reimertz/work/bandpage/bandpage-www-dest/css/editor/modules/about.css",
+		"/Users/reimertz/work/bandpage/bandpage-www-dest/css/editor/header.css",
+		"/Users/reimertz/work/bandpage/bandpage-www-dest/html/lib/partials/modules/editor/about.html",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/Rickrolled.js",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/Writer.js",
+		"/Users/reimertz/git/reimertz.2.0/src/scripts/Translater.js",
+		"/Users/reimertz/git/reimertz.2.0/src/templates/lol.jade",
+		"/Users/reimertz/git/reimertz.2.0/src/templates/partials/box.jade",
+		"/Users/reimertz/git/reimertz.2.0/index.jade",
+		"/Users/reimertz/git/reimertz.2.0/3d-paragraph.scss",
+		"/Users/reimertz/git/reimertz.2.0/styles.scss",
+		"/Users/reimertz/git/reimertz.2.0/script.js",
+		"/Users/reimertz/.npmrc",
+		"/Users/reimertz/git/reimertz.2.0/scripts/Writer.js",
+		"/Users/reimertz/git/reimertz.2.0/scripts/writer.js",
+		"/Users/reimertz/git/reimertz.2.0/.tmp/script.js",
+		"/var/folders/pg/tsyc1gl95130v2blzq124d540000gp/T/edit.eo9lkttxi94ossck/new-commit",
+		"/Users/reimertz/work/bandpage/bandpage-www-dest/js/library/js/rm/models/offers/OfferEditorModel.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>",
+			"<project>, *.js",
+			"<project>",
+			"<project>, *.js",
+			"<project>",
+			"project",
+			"/Users/reimertz/git/reimertz.2.0",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.css",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.css",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest",
+			"<project>, *.html",
+			"/Users/reimertz/git/surflr/surflr-2/, *.html",
+			"/Users/reimertz/git/surflr/surflr-2/, *.scss",
+			"/Users/reimertz/git/surflr/surflr-2/client, *.scss",
+			"/Users/reimertz/git/surflr/surflr-2/client, *.js",
+			"/Users/reimertz/git/surflr/surflr-2/client",
+			"<project>",
+			"<project>, *.html",
+			"<project>, *.m",
+			"<project>, *.css",
+			"<project>, *",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>",
+			"/Users/reimertz/git/hackforrefugees/showcase/public/stylesheets",
+			"<project>",
+			"<project>, *.scss",
+			"<project>",
+			"<project>, *.js",
+			"<project>, *.scss",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>",
+			"<project>, *",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.ks",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>",
+			"<project>, *.js",
+			"<project>",
+			"/Users/reimertz/heartcoins/hc-meteor/client",
+			"/Users/reimertz/heartcoins/hc-meteor/",
+			"/Users/reimertz/heartcoins/hc-meteor/client/",
+			"/Users/reimertz/heartcoins/hc-meteor/client/scripts",
+			"/Users/reimertz/heartcoins/hc-meteor/client/",
+			"/Users/reimertz/heartcoins/hc-meteor/client/scripts",
+			"/Users/reimertz/heartcoins/hc-meteor/",
+			"/Users/reimertz/heartcoins/hc-meteor/client/stylesheets",
+			"/Users/reimertz/heartcoins/hc-meteor/.meteor",
+			"<project>",
+			"/Users/reimertz/work/bandpage/",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.html",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/, (.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/",
+			"/Users/reimertz/work/bandpage/bandpage-api-core/src/main/resources/emails/template",
+			"/Users/reimertz/work/bandpage/bandpage-api-core",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest",
+			"/Users/reimertz/work/bandpage/bandpage-api-core/src",
+			"<project>",
+			"<project>, *.mustache",
+			"<project>",
+			"<project>, *.mustache",
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.css",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.css",
+			"<project>, *.js",
+			"/Users/reimertz/work/bandpage/bandpage-www-dest/legacy/library/js/rm/models",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js",
+			"<project>, *.html",
+			"<project>, *.js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			".play.video .image.loading",
+			"LikeComponent",
+			"ContentPortion",
+			"<<<<<<< HEAD",
+			".video-player .content",
+			"SXSW",
+			"SXSW Stream From Victoria By",
+			"cover_",
+			"_cover",
+			"this.live",
+			"this.state.is_live",
+			"is_live: this.state.is_live",
+			"this.state.is_live",
+			"<<<<<< Updated upstream",
+			"\"play",
+			"LiveLikes",
+			"imageUrl",
+			".sticky-footer",
+			"<<<<<<< HEAD",
+			"border:",
+			"border",
+			"50",
+			"1px",
+			"Navbar",
+			"ExtraContent",
+			"Extra",
+			"bio",
+			"Hi",
+			"labels",
+			"country",
+			"#country",
+			"country",
+			"#country",
+			"/static/images/play.png",
+			"stay tuned!",
+			".play",
+			":hover",
+			"VideoPortion",
+			"image",
+			"VideoPlayer",
+			".image:",
+			"time_ago",
+			"small video",
+			"10",
+			"Archives",
+			"ExtraContent",
+			"ContentPortion",
+			"icons",
+			"ExtraContent",
+			"ContentPortion",
+			"LikeComponent",
+			"extra content",
+			"extra-content",
+			"right floated meta",
+			"150",
+			"150px",
+			"img",
+			"SubscribeButton",
+			"Follow",
+			"liveLike",
+			"a",
+			"div",
+			"white",
+			"Subscribe",
+			"dark-",
+			" !important",
+			"labels",
+			"ExtraContent",
+			"labels",
+			"country",
+			"#country",
+			"VideoPlayer",
+			"ui card play video",
+			"ExtraContent",
+			" ",
+			"100",
+			"sendbird",
+			"message",
+			"ui.menu ",
+			"sassLoaders",
+			"/login",
+			"sendMe",
+			"import '",
+			"getChat",
+			"Chat",
+			"autoprefixer",
+			"var",
+			"resolve",
+			"ExtractTextPlugin",
+			".ui.comments .comment .avatar img",
+			"username",
+			"connectToChannel",
+			"getInitialComments",
+			"username",
+			"token",
+			"streamer",
+			"chat/",
+			"getChatInfo",
+			"username",
+			"this.setState",
+			"stream_owner",
+			"get_session_data",
+			"streams/",
+			"streams",
+			"username",
+			"getChatInfo",
+			"ajax",
+			"assign_chat_access_token",
+			"assign_chat_access_token\nassign_chat_access_token",
+			"assign_chat_access_token",
+			"imageUrl",
+			"getChatInfo",
+			"email",
+			"getChatInfo",
+			"username",
+			"sessionToken",
+			"componentWillReceiveProps",
+			"getStats",
+			"sessionToken",
+			"<Chat",
+			"/session/",
+			"/stream/",
+			"this.removeHeart",
+			"removeHeart",
+			"this.timeouts",
+			"elemRemoved",
+			"LiveLikes",
+			"Live"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"#f38846",
+			"2015 BandPage",
+			"$sh-",
+			"$sh",
+			"gc-"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "reimertz.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"likecomponent",
+				"svc/main/static/react/app/components/LikeComponent.js"
+			],
+			[
+				"flowpl",
+				"svc/main/static/react/app/components/FlowPlayer.js"
+			],
+			[
+				"likeco",
+				"svc/main/static/react/app/components/LikeComponent.js"
+			],
+			[
+				"navba",
+				"svc/main/static/react/app/components/Navbar.js"
+			],
+			[
+				"viewsr",
+				"svc/main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"viewstr",
+				"svc/main/static/js/ViewStream.js"
+			],
+			[
+				"chat.",
+				"svc/main/static/react/app/components/Chat.js"
+			],
+			[
+				"button",
+				"svc/main/static/react/app/stylesheets/modules/button.scss"
+			],
+			[
+				"svc/main/static/react/app/components/viewstream.js",
+				"svc/main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"svc/main/static/react/app/components/videoplayer.js",
+				"svc/main/static/react/app/components/VideoPlayer.js"
+			],
+			[
+				"navbar",
+				"svc/main/static/react/app/components/Navbar.js"
+			],
+			[
+				"main.js",
+				"svc/main/static/react/app/components/Main.js"
+			],
+			[
+				"videopl",
+				"svc/main/static/react/app/components/VideoPlayer.js"
+			],
+			[
+				"viewstream",
+				"svc/main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"videopla",
+				"svc/main/static/react/app/stylesheets/Components/VideoPlayer.scss"
+			],
+			[
+				"player",
+				"svc/main/static/react/app/stylesheets/Components/VideoPlayer.scss"
+			],
+			[
+				"styles",
+				"svc/main/static/css/styles.css"
+			],
+			[
+				"video",
+				"svc/main/static/react/app/stylesheets/Components/VideoPlayer.scss"
+			],
+			[
+				"semantic",
+				"svc/main/static/css/semantic.min.css"
+			],
+			[
+				"navbar.",
+				"svc/main/static/react/app/stylesheets/Components/navbar.scss"
+			],
+			[
+				"vnav",
+				"svc/main/static/react/app/components/Navbar.js"
+			],
+			[
+				"navbar.js",
+				"svc/main/static/react/app/components/Navbar.js"
+			],
+			[
+				"viewstre",
+				"svc/main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"chat.js",
+				"svc/main/static/react/app/components/Chat.js"
+			],
+			[
+				"index.html",
+				"svc/main/templates/index.html"
+			],
+			[
+				"styles.css",
+				"svc/main/static/css/styles.css"
+			],
+			[
+				"index.",
+				"svc/main/templates/index.html"
+			],
+			[
+				"main.",
+				"svc/main/static/react/app/components/Main.js"
+			],
+			[
+				"style",
+				"svc/main/static/css/styles.css"
+			],
+			[
+				"varia",
+				"svc/main/static/react/app/stylesheets/variables.scss"
+			],
+			[
+				"routes",
+				"svc/main/static/react/app/config/routes.js"
+			],
+			[
+				"webpac",
+				"svc/main/static/react/webpack.config.js"
+			],
+			[
+				"views.p",
+				"svc/main/views.py"
+			],
+			[
+				"view.spy",
+				"svc/chat/views.py"
+			],
+			[
+				"chat.py",
+				"svc/main/chat.py"
+			],
+			[
+				"views",
+				"svc/main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"virw",
+				"svc/main/static/js/ViewStream.js"
+			],
+			[
+				"view",
+				"svc/main/views.py"
+			],
+			[
+				"custom",
+				"svc/main/static/css/landingPage/custom.css"
+			],
+			[
+				"routes.",
+				"main/static/react/app/config/routes.js"
+			],
+			[
+				"/views",
+				"main/static/react/app/components/ViewStream.js"
+			],
+			[
+				"videoplay",
+				"main/static/react/app/components/VideoPlayer.js"
+			],
+			[
+				"home",
+				"src/assets/jsx/home.jsx"
+			],
+			[
+				"lazyloa",
+				"src/scripts/modules/LazyLoader.js"
+			],
+			[
+				"variables",
+				"src/stylesheets/_variables.scss"
+			],
+			[
+				"writer.js",
+				"src/scripts/modules/Writer.js"
+			],
+			[
+				"writer",
+				"src/scripts/modules/Writer.js"
+			],
+			[
+				"index.ja",
+				"templates/index.jade"
+			],
+			[
+				"index.jade",
+				"templates/index.jade"
+			],
+			[
+				"plane",
+				"src/stylesheets/components/3d-plane.scss"
+			],
+			[
+				"sty",
+				"styles.scss"
+			],
+			[
+				"scrip",
+				"script.js"
+			],
+			[
+				"index",
+				"index.jade"
+			],
+			[
+				"offers.js",
+				"js/editor/modules/offers/src/offers.js"
+			],
+			[
+				"wizar",
+				"js/library/js/view/mixin/Wizard.js"
+			],
+			[
+				"partnerdat",
+				"js/library/js/rm/app/DataSources/PartnerDataSource.js"
+			],
+			[
+				"offeredit",
+				"js/library/js/rm/app/Offer/layouts/OfferEditor.js"
+			],
+			[
+				"partners.",
+				"html/desktop/marketing/partners/partners.html"
+			],
+			[
+				"partnerdatasource",
+				"js/library/js/rm/app/DataSources/PartnerDataSource.js"
+			],
+			[
+				"powered-by.html",
+				"html/lib/partials/widgets/powered-by.html"
+			],
+			[
+				"error.css",
+				"css/marketing/responsive/error.css"
+			],
+			[
+				"vari",
+				"css/lib/variables.css"
+			],
+			[
+				"about",
+				"html/desktop/marketing/about.html"
+			],
+			[
+				"emailform",
+				"js/library/modules/EmailForm/src/EmailForm.js"
+			],
+			[
+				"error",
+				"html/responsive/error.html"
+			],
+			[
+				"about.js",
+				"js/company/about/modules/about/src/about.js"
+			],
+			[
+				"artitst",
+				"html/desktop/marketing/artists.html"
+			],
+			[
+				"oab.js",
+				"client/views/surf/controller/oab.js"
+			],
+			[
+				"comments",
+				"both/collections/Comments.js"
+			],
+			[
+				"surf.js",
+				"client/views/surf/surf.js"
+			],
+			[
+				"surf.",
+				"client/views/surf/surf.scss"
+			],
+			[
+				"sur",
+				"client/views/surf/surf.js"
+			],
+			[
+				"ownc",
+				"client/views/comments/ownComments/ownComments.html"
+			],
+			[
+				"users",
+				"both/collections/Users.js"
+			],
+			[
+				"script",
+				"script.js"
+			],
+			[
+				"404",
+				"html/responsive/404.html"
+			],
+			[
+				"cdvin",
+				".meteor/local/cordova-build/plugins/cordova-plugin-inappbrowser/src/ios/CDVInAppBrowser.m"
+			],
+			[
+				"cdvinappbrowser.m",
+				".meteor/local/cordova-build/plugins/cordova-plugin-inappbrowser/src/ios/CDVInAppBrowser.m"
+			],
+			[
+				"about.ht",
+				"html/lib/partials/widgets-legacy/about.html"
+			],
+			[
+				"libvariable",
+				"css/lib/variables.css"
+			],
+			[
+				"about.html",
+				"html/lib/partials/modules/editor/about.html"
+			],
+			[
+				"eventmedi",
+				"legacy/library/js/core/EventMediator.js"
+			],
+			[
+				"bandinfo",
+				"legacy/library/js/rm/app/About/models/BandInfo.js"
+			],
+			[
+				"modelwebsite",
+				"legacy/library/js/rm/models/website/Website.js"
+			],
+			[
+				"website",
+				"legacy/library/js/rm/models/website/WebsiteList.js"
+			],
+			[
+				"about.css",
+				"css/editor/modules/about.css"
+			],
+			[
+				"customdr",
+				"legacy/library/js/view/controls/CustomDropdown.js"
+			],
+			[
+				"poller",
+				"modules/poller.js"
+			],
+			[
+				"commits",
+				"modules/commits.js"
+			],
+			[
+				"combo",
+				"legacy/library/js/view/mixin/Combobox.js"
+			],
+			[
+				"customdro",
+				"legacy/library/js/view/controls/CustomDropdown.js"
+			],
+			[
+				"editable",
+				"legacy/library/js/view/mixin/Editable.js"
+			],
+			[
+				"smart",
+				"legacy/library/js/rm/models/SmartCollection.js"
+			],
+			[
+				"smartco",
+				"legacy/library/js/rm/models/SmartCollection.js"
+			],
+			[
+				"input.js",
+				"legacy/library/js/view/mixin/ui/Input.js"
+			],
+			[
+				"models/colle",
+				"legacy/library/js/rm/models/Collection.js"
+			],
+			[
+				"basecollection",
+				"legacy/library/js/rm/models/mixins/SortedCollection.js"
+			],
+			[
+				"collction.js",
+				"legacy/library/js/rm/models/Collection.js"
+			],
+			[
+				"data",
+				"legacy/library/js/view/mixin/DataBind.js"
+			],
+			[
+				"offerskulistitem",
+				"legacy/library/js/rm/app/Offer/views/OfferSKUListItem.js"
+			],
+			[
+				"datab",
+				"legacy/library/js/view/mixin/DataBind.js"
+			],
+			[
+				"mixins/",
+				"legacy/library/js/view/mixin/States.js"
+			],
+			[
+				"website.js",
+				"legacy/library/js/rm/models/website/Website.js"
+			],
+			[
+				"databind",
+				"legacy/library/js/view/mixin/DataBind.js"
+			],
+			[
+				"onlineservice",
+				"legacy/library/js/rm/views/OnlineServicesViews.js"
+			],
+			[
+				"websitee",
+				"legacy/library/js/rm/app/About/views/WebsiteItemEditorView.js"
+			],
+			[
+				"egacy/library/js/view/controls/",
+				"legacy/library/js/view/controls/Alert.js"
+			],
+			[
+				"bandinfo.js",
+				"legacy/library/js/rm/app/About/models/BandInfo.js"
+			],
+			[
+				"detail.css",
+				"css/marketing/store/detail.css"
+			],
+			[
+				"_headings",
+				"src/stylesheets/common/_headings.scss"
+			],
+			[
+				"_elements",
+				"src/stylesheets/common/_elements.scss"
+			],
+			[
+				"indexjade",
+				"src/templates/views/index.jade"
+			],
+			[
+				"home.scs",
+				"src/stylesheets/views/_home.scss"
+			],
+			[
+				"_buttons",
+				"src/stylesheets/common/_buttons.scss"
+			],
+			[
+				"_vari",
+				"src/stylesheets/_variables.scss"
+			],
+			[
+				"_home",
+				"src/stylesheets/views/_home.scss"
+			],
+			[
+				"temindex.ja",
+				"src/templates/views/index.jade"
+			],
+			[
+				"_but",
+				"src/stylesheets/common/_buttons.scss"
+			],
+			[
+				"skuc",
+				"legacy/library/js/rm/app/Offer/views/widget/SkuChooser.js"
+			],
+			[
+				"offer-detail.html",
+				"html/lib/partials/widgets/offer-detail.html"
+			],
+			[
+				"offerpreview",
+				"html/lib/partials/modules/editor/offers/preview.html"
+			],
+			[
+				"buttons",
+				"src/stylesheets/common/_buttons.scss"
+			],
+			[
+				"def",
+				"src/templates/layouts/default.jade"
+			],
+			[
+				"edita",
+				"client/views/account/edit/editAccount.html"
+			],
+			[
+				"users.js",
+				"both/collections/Users.js"
+			],
+			[
+				"publishusers",
+				"server/publish/users.js"
+			],
+			[
+				"pa",
+				".meteor/packages"
+			],
+			[
+				"rout",
+				"both/routes.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 903.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 301.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

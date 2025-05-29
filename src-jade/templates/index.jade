@@ -1,0 +1,173 @@
+extends ../layouts/default
+
+block content
+  all-my-secret-api-keys
+  main.tre-d
+    p-3d(three-d-text="night-mode" data-night-mode-toggle).night-mode night-mode [x]
+    header
+      include partials/box
+      include partials/box
+      include partials/box
+      include partials/box
+      img-3d.me
+      p-3d(three-d-text="").writer
+
+    section.projects
+      header
+        p-3d-medium(three-d-text="my most recent work/hacks..").green-bg my most recent work/hacks/talks..
+      ol
+        li.project
+          a(href="/when-i-go" target="_blank")
+            img(data-lazy="/images/projects/slowclub-cover.gif")
+          span.red #[b When I Go] A cover of Slow Club's amazing song.
+
+        li.project
+          a(href="http://flagtimes.com" target="_blank")
+            img(data-lazy="/images/projects/flagtimes-site.gif")
+          span.red #[b FlagTimes] The macOS timezone app for anyone working in multiple timezones.
+
+        li.project
+          a(href="http://vincent.ai" target="_blank")
+            img(data-lazy="/images/projects/vincent.gif")
+          span.red #[b vincent.ai] create high resolution art from your photos using Generative Adversarial Networks.
+
+        li.project
+          a(href="http://asocial.ly" target="_blank")
+            img(data-lazy="/images/projects/asocial_black.png")
+          span.red #[b aSocial] All the social platforms in one place where your privacy is protected.
+
+        li.project
+          a(href="https://anolog.org" target="_blank")
+            img(data-lazy="/images/projects/anolog.png")
+          span.red #[b anolog.org] the anonymous, fully encrypted and open-sourced blogging platform.
+
+        li.project
+          a(href="https://github.com/reimertz/wcal" target="_blank")
+            img(data-lazy="/images/projects/wcal.gif")
+          span.red #[b wcal] a terminal-based time-tracker derived from ncal.
+
+        li.project
+          a(href="http://git.chat" target="_blank")
+            img(data-lazy="/images/projects/git-chat.gif")
+          span.red #[b git.chat] a open-sourced messaging system incorporated into your git repository.
+        li.project
+          a(href="https://youtu.be/LHu8rwLK5sA" target="_blank")
+            img(data-lazy="/images/projects/nordic_js.gif")
+          span.red #[b nordic.js] i gave a lightning talk at Nordic.js about cross-browser privacy vulnerability.
+        li.project
+          a(href="http://opentracing.io" target="_blank")
+            img(data-lazy="/images/projects/opentracing.gif")
+          span #[b opentracing.io] collaboration with my lovely girlfriend. she designed, I coded.
+        li.project
+          a(href="http://github.com/reimertz/lagom" target="_blank")
+            img(data-lazy="/images/projects/lagom.gif")
+          span #[b lagom] simplistic presentation generator
+        li.project
+          a(href="http://jsbin.com/gozelij/14" target="_blank")
+            img(data-lazy="/images/projects/write-something.gif")
+          span #[b write-something] just me messing around with observable sequences
+        li.project
+          a(href="http://github.com/reimertz/push" target="_blank")
+            img(data-lazy="/images/projects/push.png" style="background: white;")
+          span #[b push] Deploy static content easily, freely and anonymously
+        li.project
+          a(href="http://jsbin.com/palobo/52/edit?js,output" target="_blank")
+            img(data-lazy="/images/projects/685bytesynth.gif")
+          span #[b 685byte synth] I wanted to create a synth below 1kb with JS only. I succeeded.
+        li.project
+          a(href="http://countryparrots.com/" target="_blank")
+            img(data-lazy="/images/projects/parrot_big.gif")
+          span #[b Country Parrots] one party parrot for each country
+        li.project
+          a(href="https://www.ampli.fi" target="_blank")
+            img(data-lazy="/images/projects/amplifi.gif")
+          span #[b Ampli.fi] A twitch-like service for musicians which I co-founded.
+        li.project
+          a(href="http://sfmusicalliance.com/" target="_blank")
+            img(data-lazy="/images/projects/sfma.gif")
+          span #[b San Francisco Music Alliance] helped a friend design+implement their CMS using prose + github pages. no more wordpress.
+
+        li.project
+          a(href="http://trumpcss.com/" target="_blank")
+            img(data-lazy="/images/projects/trump.gif")
+          span #[b trump.css] if you want to add a little bit of Trump on your homepage
+        li.project
+          a(href="http://differentperspectiv.es" target="_blank")
+            img(data-lazy="/images/projects/different-perspectives.gif")
+          span #[b Different Perspectives] interactive Virtual Reality demos using Google Cardboard to experience situations from Different Perspectives.
+        li.project
+          a(href="http://brand-colors.com" target="_blank")
+            img(data-lazy="/images/projects/brand-colors.gif")
+          span #[b brand-colors] a brand color collection available in sass, less, stylus and css
+        li.project
+          a(href="http://hackforrefugees.com" target="_blank")
+            img(data-lazy="/images/projects/hackforrefugees.gif")
+          span #[b Hack for Refugees] nobody can do everything, but everybody can do something
+        li.project
+          a(href="http://heartcoins.org" target="_blank")
+            img(data-lazy="/images/projects/heartcoins.gif")
+          span #[b HeartCoins] currently building a crypto-currency based on good will
+        li.project
+          a(href="http://bandpage artists" target="_blank")
+            img(data-lazy="/images/projects/bandpage-1.gif")
+          span #[b bandpage/artists] i worked at bandpage(acquired by youtube) for 3.5 years
+        li.project
+          a(href="http://bandpage.com/partners/spotify" target="_blank")
+            img(data-lazy="/images/projects/bandpage-2.gif")
+          span #[b bandpage/spotify] i did everything from helping out with engineering, design and content. also turned the gig room to the next level.
+        li.project
+          a(href="http://github.com/reimertz/gyver" target="_blank")
+            img(data-lazy="/images/projects/gyver.gif")
+          span #[b gyver] a swiz army knife for all the terminal lovers out there
+        li.project
+          a(href="http://github.com/reimertz/feel-beats" target="_blank")
+            img(data-lazy="/images/projects/feelbeats.jpg")
+          span #[b feel beats] a hardware hack that gives you the feeling of being a drummer
+        li.project
+          a(href="http://flag-colors.com" target="_blank")
+            img(data-lazy="/images/projects/flag-colors.gif")
+          span #[b flag colors] a flag color collection available in sass, less, stylus and css
+        li.project
+          a
+            img(data-lazy="/images/projects/popwars.gif")
+          span #[b pop-wars] a popup-based multiplayer game
+        li.project
+          a(href="https://twitter.com/reimertz/status/693152132875304960" target="_blank")
+            img(data-lazy="/images/projects/nevah.gif")
+          span #[b rickrolled.js] soon to be released
+        li.project
+          a(href="http://github.com/reimertz/letswork" target="_blank")
+            img(data-lazy="/images/projects/letswork.png")
+          span #[b letswork] a CLI that helps you focus
+        li.project
+          a(href="http://www.dynosrc.com/" target="_blank")
+            img(data-lazy="/images/projects/dynosrc.gif")
+          span #[b dynosrc] serve differential updates to users on the fly
+        li.project
+          a(href="http://nes-o-png.herokuapp.com" target="_blank")
+            img(data-lazy="/images/projects/nes-o-png.gif")
+          span.
+              #[b nes-over-png] a noscript-compatible twitch-plays-zelda
+        li.project
+          a(href="http://shorten.li" target="_blank")
+            img(data-lazy="/images/projects/shorten-js.gif")
+          span #[b shorten.li] a free client-side url-shortener, say whaat?
+        li.project
+          a(href="http://swear.at" target="_blank")
+            img(data-lazy="/images/projects/swear-at.gif")
+          span #[b swear.at] this is for you Jashan
+        li.project
+          a(href="http://github.com/reimertz/plus.js" target="_blank")
+            img(data-lazy="/images/projects/plus-js.png")
+          span #[b plus.js] a lightweight, templating engine that is all about speed.
+
+        li.project
+          a(href="http://github.com/reimertz/purple" target="_blank")
+            img(data-lazy="/images/projects/purple.gif")
+          span #[b purple] Just a hack
+        li.project
+          a(href="http://vasktrafik.se" target="_blank")
+            img(data-lazy="/images/projects/vasktrafik.jpg")
+          span #[b vasktrafik] Did you know that 1MB equals 5.9 Wh?!
+  body-scripts
+    script(src='/scripts/main-home.bundle.js')

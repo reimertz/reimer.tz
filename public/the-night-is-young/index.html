@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PIERRE REIMERTZ - WHEN I GO</title>
+</head>
+<style>
+
+@media (max-width: 400px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (max-height: 300px) {
+  html {
+    font-size: 2px;
+  }
+}
+
+body {
+  background-color: black;
+  margin: 0;
+}
+
+body, html {
+  overflow-x: hidden;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1, h3 {
+  transition: all 500ms;
+}
+
+h1 {
+  font-size: 5rem;
+  color: white;
+}
+
+h3 {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+}
+
+video {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 30s;
+}
+
+section {
+  z-index: 1337;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+
+  -webkit-user-select: none;
+  user-select: none;
+
+}
+
+svg {
+  cursor: pointer;
+  display: inline;
+  fill: white;
+  width: 8rem;
+  transition: all 500ms;
+  padding: 1rem;
+  user-select: none;
+}
+
+svg.pause {
+  display: none;
+}
+
+body[data-playing="true"] svg.pause {
+   display: inline;
+}
+
+body[data-playing="true"] svg.play {
+   display: none;
+}
+
+body[data-playing="true"] section h1,
+body[data-playing="true"] section h3 {
+  opacity: 0.05;
+}
+
+body[data-playing="true"] section svg {
+  opacity: 0.2;
+}
+
+body[data-playing="true"] video,
+body[data-playing="true"] section svg:hover  {
+  opacity: 1;
+}
+
+</style>
+<body>
+
+<video loop playsinline>
+  <source src="video.mp4" type="video/mp4" />
+</video>
+
+
+<section>
+  <h1>PIÉRRE REIMERTZ</h1>
+
+  <svg class="play" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+  </svg>
+  <svg class="pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"/>
+  </svg>
+
+  <h1>THE NIGHT IS YOUNG.</h1>
+<pre>
+I don't know happened, but long days feel short
+we should apathetic in the work, instead we talk
+
+Schedule is is over,  I'll see you instead
+No more writing, I tuck you into my bed
+
+Your skin looks so soft and that cute smile of yours
+is all that I want a cold night in march
+
+I hope but I wont throw the rope
+help me, dare me to show want I should want
+the night is young, <i>but our love could be old</i>
+
+i don't about you, but I feel this strange thing
+it was so long ago, till now I felt ice cold
+but please be honest if the feelings I assume is wrong
+Then I'll turn around my heart is hard, just a bit sore
+
+I hope but I wont throw the rope
+help me, dare me to show want I should want
+the night is young, <i>but our love could be old</i>
+</pre>
+
+<h3><a href="https://reimertz.co">GO BACK</a></h3>
+
+</section>
+
+
+
+
+<script>
+const sources = [document.querySelector('video')]
+const playButton = document.querySelector('.play')
+const pauseButton = document.querySelector('.pause')
+
+function toggleSong(shouldPlay) {
+  document.body.setAttribute('data-playing', shouldPlay)
+  sources.map(source => source[shouldPlay ? 'play' : 'pause']())
+}
+
+playButton.addEventListener('click', e => toggleSong(true))
+pauseButton.addEventListener('click', e => toggleSong(false))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Box from '../components/Box.astro';
+import projects from '../data/projects.json';
+---
+
+<Layout title="reimertz.co">
+  <all-my-secret-api-keys></all-my-secret-api-keys>
+  <main class="tre-d">
+    <p-3d three-d-text="night-mode" data-night-mode-toggle="true" class="night-mode">night-mode [x]</p-3d>
+    <header>
+      <Box />
+      <Box />
+      <Box />
+      <Box />
+      <img-3d class="me"></img-3d>
+      <p-3d three-d-text="" class="writer"></p-3d>
+    </header>
+
+    <section class="projects">
+      <header>
+        <p-3d-medium three-d-text="my most recent work/hacks.." class="green-bg">my most recent work/hacks/talks..</p-3d-medium>
+      </header>
+      <ol>
+        {projects.map((project) => (
+          <li class="project">
+            {project.url ? (
+              <a href={project.url} target={project.target}>
+                <img data-lazy={project.image} style={project.style || ''} />
+              </a>
+            ) : (
+              <a>
+                <img data-lazy={project.image} style={project.style || ''} />
+              </a>
+            )}
+            <span class={project.color}>
+              <b>{project.title}</b> {project.description}
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  </main>
+</Layout>

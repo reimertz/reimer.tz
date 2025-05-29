@@ -1,0 +1,32 @@
+@keyframes hueRotation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  25%{
+    filter: hue-rotate(90deg);
+  }
+
+  50%{
+    filter: hue-rotate(180deg);
+  }
+
+  75%{
+    filter: hue-rotate(270deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+[data-lazy-status] {
+  transition: filter 1500ms;
+}
+
+[data-lazy-status="loading"] {
+  animation-fill-mode: forwards;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-name: hueRotation;
+}
