@@ -8,50 +8,50 @@
     "color": "red"
   },
   {
-    "title": "FlagTimes",
-    "description": "The macOS timezone app for anyone working in multiple timezones.",
-    "url": "http://flagtimes.com",
-    "image": "/images/projects/flagtimes-site.gif",
+    "title": "brand-colors",
+    "description": "🎨 A color collection available in sass, less, stylus and css. 786 ⭐",
+    "url": "https://github.com/reimertz/brand-colors",
+    "image": "/images/projects/brand-colors.gif",
     "target": "_blank",
     "color": "red"
   },
   {
-    "title": "vincent.ai",
-    "description": "create high resolution art from your photos using Generative Adversarial Networks.",
-    "url": "http://vincent.ai",
-    "image": "/images/projects/vincent.gif",
+    "title": "lagom",
+    "description": "🖼 simplistic presentation generator. 199 ⭐",
+    "url": "https://github.com/reimertz/lagom",
+    "image": "/images/projects/lagom.gif",
     "target": "_blank",
     "color": "red"
   },
   {
-    "title": "aSocial",
-    "description": "All the social platforms in one place where your privacy is protected.",
-    "url": "http://asocial.ly",
-    "image": "/images/projects/asocial_black.png",
+    "title": "trumpcss",
+    "description": "🙈 css rules based on ignorance, racism, hypocrisy and stupidity. 71 ⭐",
+    "url": "https://github.com/reimertz/trumpcss",
+    "image": "/images/projects/trump.gif",
     "target": "_blank",
     "color": "red"
   },
   {
-    "title": "anolog.org",
-    "description": "the anonymous, fully encrypted and open-sourced blogging platform.",
-    "url": "https://anolog.org",
-    "image": "/images/projects/anolog.png",
+    "title": "countryparrots",
+    "description": "🐦 one party-parrot for each country. 30 ⭐",
+    "url": "https://github.com/reimertz/countryparrots",
+    "image": "/images/projects/parrot_big.gif",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "letswork",
+    "description": "👷‍♀️ A CLI tool to disable distractions when you need to focus. 29 ⭐",
+    "url": "https://github.com/reimertz/letswork",
+    "image": "/images/projects/letswork.png",
     "target": "_blank",
     "color": "red"
   },
   {
     "title": "wcal",
-    "description": "a terminal-based time-tracker derived from ncal.",
+    "description": "⏰ a time-tracker derived from ncal. 16 ⭐",
     "url": "https://github.com/reimertz/wcal",
     "image": "/images/projects/wcal.gif",
-    "target": "_blank",
-    "color": "red"
-  },
-  {
-    "title": "git.chat",
-    "description": "a open-sourced messaging system incorporated into your git repository.",
-    "url": "http://git.chat",
-    "image": "/images/projects/git-chat.gif",
     "target": "_blank",
     "color": "red"
   },
@@ -72,10 +72,10 @@
     "color": ""
   },
   {
-    "title": "lagom",
-    "description": "simplistic presentation generator",
-    "url": "http://github.com/reimertz/lagom",
-    "image": "/images/projects/lagom.gif",
+    "title": "git.chat",
+    "description": "a open-sourced messaging system incorporated into your git repository.",
+    "url": "http://git.chat",
+    "image": "/images/projects/git-chat.gif",
     "target": "_blank",
     "color": ""
   },
@@ -145,10 +145,10 @@
     "color": ""
   },
   {
-    "title": "brand-colors",
-    "description": "a brand color collection available in sass, less, stylus and css",
-    "url": "http://brand-colors.com",
-    "image": "/images/projects/brand-colors.gif",
+    "title": "flag-colors",
+    "description": "a flag color collection available in sass, less, stylus and css",
+    "url": "https://github.com/reimertz/flag-colors",
+    "image": "/images/projects/flag-colors.gif",
     "target": "_blank",
     "color": ""
   },
@@ -225,10 +225,10 @@
     "color": ""
   },
   {
-    "title": "letswork",
-    "description": "a CLI that helps you focus",
-    "url": "http://github.com/reimertz/letswork",
-    "image": "/images/projects/letswork.png",
+    "title": "gyver",
+    "description": "a swiss army knife for all the terminal lovers out there",
+    "url": "https://github.com/reimertz/gyver",
+    "image": "/images/projects/gyver.gif",
     "target": "_blank",
     "color": ""
   },
@@ -287,5 +287,21 @@
     "image": "/images/projects/vasktrafik.jpg",
     "target": "_blank",
     "color": ""
+  },
+  {
+    "title": "hackintosh-x570i-5950x-6800xt",
+    "description": "🖥️ Open-Core Utilities + EFI for Asus Strix x570i + AMD 5950x. 52 ⭐",
+    "url": "https://github.com/reimertz/hackintosh-x570i-5950x-6800xt",
+    "image": "/images/projects/fail.png",
+    "target": "_blank",
+    "color": "red"
+  },
+  {
+    "title": "tableflip",
+    "description": "🤬 Turn user frustration into feedback with symbolic table flipping (╯°□°)╯ ︵ ┻━┻",
+    "url": "https://github.com/reimertz/tableflip",
+    "image": "/images/projects/tableflip.png",
+    "target": "_blank",
+    "color": "red"
   }
 ]

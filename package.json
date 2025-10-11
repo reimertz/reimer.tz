@@ -11,7 +11,7 @@
     "compile:css": "sass public/stylesheets/builder.scss public/stylesheets/styles.css"
   },
   "dependencies": {
-    "astro": "^5.8.1",
+    "astro": "^5.14.4",
     "sass": "^1.89.0"
   },
   "devDependencies": {

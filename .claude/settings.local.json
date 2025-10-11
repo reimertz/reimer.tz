@@ -18,7 +18,8 @@
       "Bash(npm run preview:*)",
       "WebFetch(domain:localhost)",
       "Bash(find:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:github.com)"
     ]
   },
   "enableAllProjectMcpServers": false
