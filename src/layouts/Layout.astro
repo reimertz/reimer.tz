@@ -18,7 +18,7 @@ const { title } = Astro.props
       content="width=device-width, initial-scale=1 user-scalable=no"
     />
     <title>{title}</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
   <body>
     <script type="text/javascript" is:inline>
@@ -48,10 +48,10 @@ const { title } = Astro.props
 
     <slot />
 
-    <script type="module" is:inline>
-      import Translater from '/scripts/modules/Translater.js'
-      import CursorFriend from '/scripts/modules/CursorFriend.js'
-      import LinkColorizer from '/scripts/modules/LinkColorizer.js'
+    <script>
+      import Translater from '../scripts/Translater'
+      import CursorFriend from '../scripts/CursorFriend'
+      import LinkColorizer from '../scripts/LinkColorizer'
 
       // Initialize everything when DOM is ready
       document.addEventListener('DOMContentLoaded', function () {

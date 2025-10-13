@@ -27,9 +27,12 @@ html {
 body {
   position: relative;
   padding-top: 10vh;
-  max-width: 100vw;
+  max-width: 90vw;
+  margin: 0 auto;
+
   transition:  background-color 500ms;
   flex-direction: column;
+
 }
 
 main, footer {

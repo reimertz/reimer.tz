@@ -40,8 +40,8 @@ co-founder / cto at <a href="https://hifilabs.co" target="_blank">hifi labs</a>
 ╭ current work
 ${renderList(currentWork)}
 
-previous ╮
-${renderList(previous, '         ')}
+prev ╮
+${renderList(previous, '     ')}
 
 art ╮
 ${renderList(art, '    ')}
@@ -52,8 +52,8 @@ ${renderList(talks, '      ', { addVideoButton: true })}
 projects ╮
 ${renderList(projectsList, '         ')}
 
-tiny tiger ╮
-${renderList(tinyTiger, '    ', { addPlayButton: true }).replace(/target="_blank"/g, '')}
+╭ tiny tiger
+${renderList(tinyTiger, '', { addPlayButton: true }).replace(/target="_blank"/g, '')}
 
 ╭ open-source
 ${renderList(openSource)}
@@ -80,10 +80,14 @@ ${renderList(security, '         ')}
     </header>
   </main>
 
-  <script type="module" is:inline define:vars={{ tinyTigerData: tinyTiger }}>
-    import GlobalMusicPlayer from '/scripts/modules/GlobalMusicPlayer.js'
+  <script is:inline define:vars={{ tinyTigerData: tinyTiger }}>
+    window.tinyTigerData = tinyTigerData
+  </script>
 
-    const player = new GlobalMusicPlayer(tinyTigerData)
+  <script>
+    import GlobalMusicPlayer from '../scripts/GlobalMusicPlayer'
+
+    const player = new GlobalMusicPlayer(window.tinyTigerData)
     player.start()
 
     // Music player for tiny tiger tracks

@@ -60,23 +60,14 @@ Compiles SCSS from `public/stylesheets/builder.scss` to `public/stylesheets/styl
 
 ### JavaScript Architecture
 
-All interactive JavaScript is embedded in `Layout.astro` as inline ES modules. The codebase uses a class-based architecture with the following main classes:
+Interactive JavaScript modules are in `src/scripts/` and imported via Astro's automatic bundling:
 
-1. **Writer** - Typewriter animation for intro text with special control characters:
-   - `#` = backspace
-   - `@` = pause
-   - `*` = line break
-   - `$` = link wrapper (start/end)
+1. **Translater** - 3D rotation effects based on mouse movement (desktop) or scroll (mobile)
+2. **CursorFriend** - Manages hover states on elements
+3. **LinkColorizer** - Dynamic link colors based on scroll position
+4. **GlobalMusicPlayer** - Plays audio/video tracks with background video display
 
-2. **LazyLoader** - Lazy loads images based on viewport position with optional fake slowness for effect
-
-3. **Translater** - 3D rotation effects based on mouse movement (desktop) or scroll (mobile)
-
-4. **CursorFriend** - Manages hover states on project items
-
-5. **NightMode** - Toggles dark/light theme with localStorage persistence
-
-All classes are instantiated and started in a `DOMContentLoaded` event listener at the bottom of `Layout.astro`.
+Modules are instantiated and started in `Layout.astro` and `index.astro` within `DOMContentLoaded` event listeners.
 
 ### 3D Effects
 
@@ -86,20 +77,20 @@ The site uses custom HTML elements and CSS transforms to create 3D effects:
 - `<img-3d>` for 3D image containers
 - CSS uses `transform: rotateX() rotateY()` controlled by JavaScript
 
-### Projects Data
+### Content Data
 
-Projects are stored in `src/data/projects.json` with the following schema:
-```json
-{
-  "title": "Project name",
-  "description": "Description text",
-  "url": "Link URL",
-  "image": "Path to image in /images/projects/",
-  "target": "_blank",
-  "color": "red|green|etc",
-  "style": "Optional inline CSS"
-}
-```
+Content is organized into JSON files in `src/data/`:
+- `current-work.json` - Artists worked with
+- `previous.json` - Previous companies
+- `art.json` - Art projects
+- `talks.json` - Conference talks (with `videoId` for YouTube embeds)
+- `projects-list.json` - Current projects
+- `tiny-tiger.json` - Music tracks (with `audioSrc`, `videoSrc`, `aspectRatio`)
+- `open-source.json` - Open source projects
+- `hacks.json` - Experimental projects
+- `security.json` - Security work
+
+Content is rendered at build time in `index.astro` using the `renderList()` function.
 
 ## Styling System
 
@@ -111,7 +102,9 @@ Projects are stored in `src/data/projects.json` with the following schema:
 
 ## Important Notes
 
-- The SCSS compilation step is required before running Astro since the compiled CSS is referenced in the HTML
-- All interactive JavaScript lives in `Layout.astro` - there are no separate `.js` files in the src directory
-- TypeScript excludes legacy directories: `gulpfile.js`, `src-jade/`, `public/scripts/`, `public/where-is-pieter-levels/`
+- SCSS compilation is required before running Astro (`npm run compile:css`)
+- JavaScript modules in `src/scripts/` are automatically bundled by Astro
+- Content is SEO-friendly - all text is hard-coded HTML (not dynamically generated)
+- TypeScript excludes: `public/scripts/`, `public/where-is-pieter-levels/`
 - The site uses Google Analytics (UA-61798566-1)
+- Music player supports portrait videos with aspect ratio specified in JSON
