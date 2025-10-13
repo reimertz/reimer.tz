@@ -73,12 +73,18 @@ export default class GlobalMusicPlayer {
     const track = this.tracks[this.currentTrack]
 
     if (track.audioSrc) {
-      this.audioElement.play()
+      this.audioElement.play().catch((error) => {
+        console.warn('Audio playback failed:', error)
+        // Autoplay was likely blocked by browser
+      })
     }
 
     if (track.videoSrc) {
       this.videoElement.style.opacity = '0.3'
-      this.videoElement.play()
+      this.videoElement.play().catch((error) => {
+        console.warn('Video playback failed:', error)
+        // Autoplay was likely blocked by browser
+      })
     }
   }
 
