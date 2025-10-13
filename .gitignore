@@ -29,6 +29,8 @@ pnpm-debug.log*
 
 # project-specific
 
+
 dist
+
 
 public/lansvag/
