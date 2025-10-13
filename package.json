@@ -3,12 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npm run compile:css && astro dev",
+    "dev": "npm run compile:css && npm run watch:css & astro dev",
     "start": "astro dev",
     "build": "npm run compile:css && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "compile:css": "sass public/stylesheets/builder.scss public/stylesheets/styles.css"
+    "compile:css": "sass public/stylesheets/builder.scss public/stylesheets/styles.css",
+    "watch:css": "sass --watch public/stylesheets/builder.scss public/stylesheets/styles.css"
   },
   "dependencies": {
     "astro": "^5.14.4",

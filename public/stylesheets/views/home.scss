@@ -36,7 +36,7 @@ header {
   .project {
     display: inline-block;
     position: relative;
-    margin: 2rem 2rem 2rem 0;
+    margin: 0rem 2rem 2rem 0;
 
     body[data-project-is-hovered="true"] &:not(:hover) {
       :before, span  {

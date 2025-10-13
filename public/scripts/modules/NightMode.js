@@ -1,35 +1,45 @@
-import fetch from 'isomorphic-fetch'
-import * as SunCalc from 'suncalc'
+//Creator Pierre Reimertz MIT ETC ETC
 
-const html = document.querySelector('html')
-const button = document.querySelector('[data-night-mode-toggle]')
-let isNightMode = false
+export default class NightMode {
+  constructor() {
+    this.isNightMode = false
+    this.toggle = document.querySelector('[data-night-mode-toggle]')
+    this.htmlElement = document.documentElement
 
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-function toggleNightMode() {
-  const buttonReplaceArgs = isNightMode ?  ['✓', 'x'] : ['x', '✓']
-  const list = html.getAttribute('class')
-  let newList = isNightMode ? list.replace('night-mode-on', '') : `${list} night-mode-on`
+  handleClick(event) {
+    event.preventDefault()
+    this.isNightMode = !this.isNightMode
 
-  html.setAttribute('class', newList)
+    if (this.isNightMode) {
+      this.htmlElement.classList.remove('night-mode-off')
+      this.htmlElement.classList.add('night-mode-on')
+      this.toggle.innerHTML = 'night-mode [✓]'
+      this.toggle.setAttribute('three-d-text', 'night-mode [✓]')
+    } else {
+      this.htmlElement.classList.remove('night-mode-on')
+      this.htmlElement.classList.add('night-mode-off')
+      this.toggle.innerHTML = 'night-mode [x]'
+      this.toggle.setAttribute('three-d-text', 'night-mode [x]')
+    }
 
-  button.innerHTML = button.innerHTML.replace(buttonReplaceArgs[0], buttonReplaceArgs[1])
+    console.log('Night mode:', this.isNightMode ? 'ON' : 'OFF')
+  }
 
-  isNightMode = !isNightMode
+  start() {
+    if (this.toggle) {
+      this.toggle.addEventListener('click', this.handleClick)
+      console.log('Night mode toggle initialized')
+    } else {
+      console.warn('Night mode toggle element not found')
+    }
+  }
+
+  stop() {
+    if (this.toggle) {
+      this.toggle.removeEventListener('click', this.handleClick)
+    }
+  }
 }
-
-fetch('https://geo-location.code.reimertz.co')
-  .then((response) => {
-    return response.json()
-  })
-  .then((json) => {
-    const now = +new Date()
-    const sunset = +new Date(SunCalc.getTimes(+new Date(), json.lat, json.lon).sunset)
-
-    if (now > sunset) toggleNightMode()
-  })
-
-
-button.addEventListener('click', (e) => {
-  toggleNightMode(e.target)
-})

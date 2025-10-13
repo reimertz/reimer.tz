@@ -10,44 +10,27 @@ $me-size: 30rem;
 }
 
 .me {
-  a-box:hover + a-box + a-box + a-box + &:after {
-    opacity: 1;
-    background-image: url("/images/me3.png");
-    filter: grayscale(0) saturate(10);
-  }
 
-  a-box:hover + a-box + a-box + &:after {
-    background-image: url("/images/me3.png");
-    opacity: 1;
-    filter: grayscale(0) hue-rotate(130deg) saturate(10);
-  }
-
-  a-box:hover + a-box + &:after {
-    opacity: 1;
-    background-image: url("/images/me3.png");
-    filter: grayscale(0) hue-rotate(280deg) saturate(10);
-  }
-
-  a-box:hover + &:after {
-    opacity: 1;
-    background-image: url("/images/me3.png");
-    filter: grayscale(0) hue-rotate(430deg) saturate(30);
-  }
 
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
   animation-name: iGrow;
-  background-size: $me-size * 0.6873 $me-size;
-  width: $me-size * 0.6873;
+  background-size: $me-size $me-size;
+  object-fit: cover;
+  width: $me-size ;
   transition: 2s filter linear;
 
-
-
   &:before {
-    background-image: url("/images/me.png");
+    background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+    object-fit: cover;;
+    border-radius: 20px;
+
   }
 
   &:after {
-    background-image: url("/images/me.png");
+    background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+    object-fit: cover;;
+    border-radius: 20px;
+
   }
 }

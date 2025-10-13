@@ -1,10 +1,10 @@
 //Creator Pierre Reimertz MIT ETC ETC
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 export default class CursorFriend {
 
   constructor({selector = 'data-cursor-friend', spanSelector = 'span'}) {
     this.selector = selector
     this.spanSelector = spanSelector
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
     this._elements = [].slice.call(document.querySelectorAll(`${ this.selector }`))
 
@@ -14,7 +14,7 @@ export default class CursorFriend {
   }
 
   start() {
-    if(isMobile) return
+    if(this.isMobile) return
     this._elements.map(element => {
       element.addEventListener('mouseenter', this.onEnter)
       element.addEventListener('mouseleave', this.onLeave)

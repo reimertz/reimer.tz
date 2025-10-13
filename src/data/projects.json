@@ -1,5 +1,37 @@
 [
   {
+    "title": "oss.capital",
+    "description": "",
+    "url": "https://oss.capital",
+    "image": "/images/projects/osscapital.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "aljabr.io",
+    "description": "",
+    "url": "https://aljabr.io",
+    "image": "/images/projects/aljabr.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "planetscale",
+    "description": "",
+    "url": "https://planetscale.com",
+    "image": "/images/projects/planetscale.gif",
+    "target": "_blank",
+    "color": ""
+  },
+  {
+    "title": "the night is young",
+    "description": "",
+    "url": "/the-night-is-young",
+    "image": "/images/projects/the-night-is-young.jpeg",
+    "target": "_blank",
+    "color": ""
+  },
+  {
     "title": "When I Go",
     "description": "A cover of Slow Club's amazing song.",
     "url": "/when-i-go",
@@ -8,44 +40,36 @@
     "color": "red"
   },
   {
-    "title": "brand-colors",
-    "description": "🎨 A color collection available in sass, less, stylus and css. 786 ⭐",
-    "url": "https://github.com/reimertz/brand-colors",
-    "image": "/images/projects/brand-colors.gif",
+    "title": "flagtimes",
+    "description": "",
+    "url": "https://flagtimes.re.im",
+    "image": "/images/projects/flagtimes-site.gif",
     "target": "_blank",
-    "color": "red"
+    "color": ""
   },
   {
-    "title": "lagom",
-    "description": "🖼 simplistic presentation generator. 199 ⭐",
-    "url": "https://github.com/reimertz/lagom",
-    "image": "/images/projects/lagom.gif",
+    "title": "vincent",
+    "description": "",
+    "url": "https://reimertz.co",
+    "image": "/images/projects/vincent.gif",
     "target": "_blank",
-    "color": "red"
+    "color": ""
   },
   {
-    "title": "trumpcss",
-    "description": "🙈 css rules based on ignorance, racism, hypocrisy and stupidity. 71 ⭐",
-    "url": "https://github.com/reimertz/trumpcss",
-    "image": "/images/projects/trump.gif",
+    "title": "asocial",
+    "description": "",
+    "url": "https://asocial.re.im",
+    "image": "/images/projects/asocial_black.png",
     "target": "_blank",
-    "color": "red"
+    "color": ""
   },
   {
-    "title": "countryparrots",
-    "description": "🐦 one party-parrot for each country. 30 ⭐",
-    "url": "https://github.com/reimertz/countryparrots",
-    "image": "/images/projects/parrot_big.gif",
+    "title": "anolog",
+    "description": "",
+    "url": "https://anolog.org",
+    "image": "/images/projects/anolog.png",
     "target": "_blank",
-    "color": "red"
-  },
-  {
-    "title": "letswork",
-    "description": "👷‍♀️ A CLI tool to disable distractions when you need to focus. 29 ⭐",
-    "url": "https://github.com/reimertz/letswork",
-    "image": "/images/projects/letswork.png",
-    "target": "_blank",
-    "color": "red"
+    "color": ""
   },
   {
     "title": "wcal",
@@ -54,6 +78,14 @@
     "image": "/images/projects/wcal.gif",
     "target": "_blank",
     "color": "red"
+  },
+  {
+    "title": "git.chat",
+    "description": "a open-sourced messaging system incorporated into your git repository.",
+    "url": "https://git.chat",
+    "image": "/images/projects/git-chat.gif",
+    "target": "_blank",
+    "color": ""
   },
   {
     "title": "nordic.js",
@@ -66,23 +98,23 @@
   {
     "title": "opentracing.io",
     "description": "collaboration with my lovely girlfriend. she designed, I coded.",
-    "url": "http://opentracing.io",
+    "url": "https://opentracing.io",
     "image": "/images/projects/opentracing.gif",
     "target": "_blank",
     "color": ""
   },
   {
-    "title": "git.chat",
-    "description": "a open-sourced messaging system incorporated into your git repository.",
-    "url": "http://git.chat",
-    "image": "/images/projects/git-chat.gif",
+    "title": "lagom",
+    "description": "🖼 simplistic presentation generator. 199 ⭐",
+    "url": "https://github.com/reimertz/lagom",
+    "image": "/images/projects/lagom.gif",
     "target": "_blank",
-    "color": ""
+    "color": "red"
   },
   {
     "title": "write-something",
     "description": "just me messing around with observable sequences",
-    "url": "http://jsbin.com/gozelij/14",
+    "url": "https://jsbin.com/gozelij/14",
     "image": "/images/projects/write-something.gif",
     "target": "_blank",
     "color": ""
@@ -90,7 +122,7 @@
   {
     "title": "push",
     "description": "Deploy static content easily, freely and anonymously",
-    "url": "http://github.com/reimertz/push",
+    "url": "https://github.com/reimertz/push",
     "image": "/images/projects/push.png",
     "target": "_blank",
     "color": "",
@@ -99,23 +131,23 @@
   {
     "title": "685byte synth",
     "description": "I wanted to create a synth below 1kb with JS only. I succeeded.",
-    "url": "http://jsbin.com/palobo/52/edit?js,output",
+    "url": "https://jsbin.com/palobo/52/edit?js,output",
     "image": "/images/projects/685bytesynth.gif",
     "target": "_blank",
     "color": ""
   },
   {
-    "title": "Country Parrots",
-    "description": "one party parrot for each country",
-    "url": "http://countryparrots.com/",
+    "title": "countryparrots",
+    "description": "🐦 one party-parrot for each country. 30 ⭐",
+    "url": "https://github.com/reimertz/countryparrots",
     "image": "/images/projects/parrot_big.gif",
     "target": "_blank",
-    "color": ""
+    "color": "red"
   },
   {
     "title": "Ampli.fi",
     "description": "A twitch-like service for musicians which I co-founded.",
-    "url": "https://www.ampli.fi",
+    "url": "https://angel.co/company/ampli-fi",
     "image": "/images/projects/amplifi.gif",
     "target": "_blank",
     "color": ""
@@ -123,39 +155,39 @@
   {
     "title": "San Francisco Music Alliance",
     "description": "helped a friend design+implement their CMS using prose + github pages. no more wordpress.",
-    "url": "http://sfmusicalliance.com/",
+    "url": "https://sfmusicalliance.com/",
     "image": "/images/projects/sfma.gif",
     "target": "_blank",
     "color": ""
   },
   {
-    "title": "trump.css",
-    "description": "if you want to add a little bit of Trump on your homepage",
-    "url": "http://trumpcss.com/",
+    "title": "trumpcss",
+    "description": "🙈 css rules based on ignorance, racism, hypocrisy and stupidity. 71 ⭐",
+    "url": "https://github.com/reimertz/trumpcss",
     "image": "/images/projects/trump.gif",
     "target": "_blank",
-    "color": ""
+    "color": "red"
   },
   {
     "title": "Different Perspectives",
     "description": "interactive Virtual Reality demos using Google Cardboard to experience situations from Different Perspectives.",
-    "url": "http://differentperspectiv.es",
+    "url": "https://differentperspectiv.es",
     "image": "/images/projects/different-perspectives.gif",
     "target": "_blank",
     "color": ""
   },
   {
-    "title": "flag-colors",
-    "description": "a flag color collection available in sass, less, stylus and css",
-    "url": "https://github.com/reimertz/flag-colors",
-    "image": "/images/projects/flag-colors.gif",
+    "title": "brand-colors",
+    "description": "🎨 A color collection available in sass, less, stylus and css. 786 ⭐",
+    "url": "https://reimertz.github.io/brand-colors",
+    "image": "/images/projects/brand-colors.gif",
     "target": "_blank",
-    "color": ""
+    "color": "red"
   },
   {
     "title": "Hack for Refugees",
     "description": "nobody can do everything, but everybody can do something",
-    "url": "http://hackforrefugees.com",
+    "url": "https://hackforrefugees.com",
     "image": "/images/projects/hackforrefugees.gif",
     "target": "_blank",
     "color": ""
@@ -163,7 +195,7 @@
   {
     "title": "HeartCoins",
     "description": "currently building a crypto-currency based on good will",
-    "url": "http://heartcoins.org",
+    "url": "https://heartcoins.org",
     "image": "/images/projects/heartcoins.gif",
     "target": "_blank",
     "color": ""
@@ -171,7 +203,7 @@
   {
     "title": "bandpage/artists",
     "description": "i worked at bandpage(acquired by youtube) for 3.5 years",
-    "url": "http://bandpage artists",
+    "url": "https://bandpage artists",
     "image": "/images/projects/bandpage-1.gif",
     "target": "_blank",
     "color": ""
@@ -179,15 +211,15 @@
   {
     "title": "bandpage/spotify",
     "description": "i did everything from helping out with engineering, design and content. also turned the gig room to the next level.",
-    "url": "http://bandpage.com/partners/spotify",
+    "url": "https://bandpage.com/partners/spotify",
     "image": "/images/projects/bandpage-2.gif",
     "target": "_blank",
     "color": ""
   },
   {
     "title": "gyver",
-    "description": "a swiz army knife for all the terminal lovers out there",
-    "url": "http://github.com/reimertz/gyver",
+    "description": "a swiss army knife for all the terminal lovers out there",
+    "url": "https://github.com/reimertz/gyver",
     "image": "/images/projects/gyver.gif",
     "target": "_blank",
     "color": ""
@@ -195,15 +227,15 @@
   {
     "title": "feel beats",
     "description": "a hardware hack that gives you the feeling of being a drummer",
-    "url": "http://github.com/reimertz/feel-beats",
+    "url": "https://github.com/reimertz/feel-beats",
     "image": "/images/projects/feelbeats.jpg",
     "target": "_blank",
     "color": ""
   },
   {
-    "title": "flag colors",
+    "title": "flag-colors",
     "description": "a flag color collection available in sass, less, stylus and css",
-    "url": "http://flag-colors.com",
+    "url": "https://flag-colors.re.im/",
     "image": "/images/projects/flag-colors.gif",
     "target": "_blank",
     "color": ""
@@ -225,17 +257,17 @@
     "color": ""
   },
   {
-    "title": "gyver",
-    "description": "a swiss army knife for all the terminal lovers out there",
-    "url": "https://github.com/reimertz/gyver",
-    "image": "/images/projects/gyver.gif",
+    "title": "letswork",
+    "description": "👷‍♀️ A CLI tool to disable distractions when you need to focus. 29 ⭐",
+    "url": "https://github.com/reimertz/letswork",
+    "image": "/images/projects/letswork.png",
     "target": "_blank",
-    "color": ""
+    "color": "red"
   },
   {
     "title": "dynosrc",
     "description": "serve differential updates to users on the fly",
-    "url": "http://www.dynosrc.com/",
+    "url": "https://github.com/DynoSRC/dynosrc",
     "image": "/images/projects/dynosrc.gif",
     "target": "_blank",
     "color": ""
@@ -243,7 +275,7 @@
   {
     "title": "nes-over-png",
     "description": "a noscript-compatible twitch-plays-zelda",
-    "url": "http://nes-o-png.herokuapp.com",
+    "url": "https://nes-o-png.herokuapp.com",
     "image": "/images/projects/nes-o-png.gif",
     "target": "_blank",
     "color": ""
@@ -251,7 +283,7 @@
   {
     "title": "shorten.li",
     "description": "a free client-side url-shortener, say whaat?",
-    "url": "http://shorten.li",
+    "url": "https://github.com/shorten/shorten.li",
     "image": "/images/projects/shorten-js.gif",
     "target": "_blank",
     "color": ""
@@ -259,7 +291,7 @@
   {
     "title": "swear.at",
     "description": "this is for you Jashan",
-    "url": "http://swear.at",
+    "url": "https://github.com/reimertz/swear.at",
     "image": "/images/projects/swear-at.gif",
     "target": "_blank",
     "color": ""
@@ -267,7 +299,7 @@
   {
     "title": "plus.js",
     "description": "a lightweight, templating engine that is all about speed.",
-    "url": "http://github.com/reimertz/plus.js",
+    "url": "https://github.com/reimertz/plus.js",
     "image": "/images/projects/plus-js.png",
     "target": "_blank",
     "color": ""
@@ -275,7 +307,7 @@
   {
     "title": "purple",
     "description": "Just a hack",
-    "url": "http://github.com/reimertz/purple",
+    "url": "https://github.com/reimertz/purple",
     "image": "/images/projects/purple.gif",
     "target": "_blank",
     "color": ""
@@ -283,25 +315,9 @@
   {
     "title": "vasktrafik",
     "description": "Did you know that 1MB equals 5.9 Wh?!",
-    "url": "http://vasktrafik.se",
+    "url": "https://vasktrafik.se",
     "image": "/images/projects/vasktrafik.jpg",
     "target": "_blank",
     "color": ""
-  },
-  {
-    "title": "hackintosh-x570i-5950x-6800xt",
-    "description": "🖥️ Open-Core Utilities + EFI for Asus Strix x570i + AMD 5950x. 52 ⭐",
-    "url": "https://github.com/reimertz/hackintosh-x570i-5950x-6800xt",
-    "image": "/images/projects/fail.png",
-    "target": "_blank",
-    "color": "red"
-  },
-  {
-    "title": "tableflip",
-    "description": "🤬 Turn user frustration into feedback with symbolic table flipping (╯°□°)╯ ︵ ┻━┻",
-    "url": "https://github.com/reimertz/tableflip",
-    "image": "/images/projects/tableflip.png",
-    "target": "_blank",
-    "color": "red"
   }
 ]

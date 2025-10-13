@@ -1,44 +1,68 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Box from '../components/Box.astro';
-import projects from '../data/projects.json';
+import Layout from '../layouts/Layout.astro'
+import Box from '../components/Box.astro'
+import currentWork from '../data/current-work.json'
+import previous from '../data/previous.json'
+import art from '../data/art.json'
+import talks from '../data/talks.json'
+import projectsList from '../data/projects-list.json'
+import tinyTiger from '../data/tiny-tiger.json'
+import openSource from '../data/open-source.json'
+import hacks from '../data/hacks.json'
+import security from '../data/security.json'
+
+const renderList = (items: any[], prefix = '') => {
+  return items.map((item, i) => {
+    const symbol = i === items.length - 1 ? '╰' : '├'
+    const link = item.url ? `<a href="${item.url}" target="_blank">${item.name}</a>` : item.name
+    const desc = item.description ? ` - ${item.description}` : ''
+    return `${prefix}${symbol} ${link}${desc}`
+  }).join('\n')
+}
+
+const introContent = `hi, my name is piérre reimertz.
+i'm a developer, designer and occasional musician.
+
+co-founder / cto at <a href="https://hifilabs.co" target="_blank">hifi labs</a>
+
+╭ current work
+${renderList(currentWork)}
+
+previous ╮
+${renderList(previous, '         ')}
+
+art ╮
+${renderList(art, '    ')}
+
+talks ╮
+${renderList(talks, '      ')}
+
+projects ╮
+${renderList(projectsList, '         ')}
+
+tiny tiger ╮
+${renderList(tinyTiger, '    ').replace(/target="_blank"/g, '')}
+
+╭ open-source
+${renderList(openSource)}
+
+hacks ╮
+${renderList(hacks, '      ')}
+
+security ╮
+${renderList(security, '         ')}
+
+creativity is my addiction.
+
+<a href="http://github.com/reimertz" target="_blank">github</a> | <a href="http://twitter.com/reimertz" target="_blank">twitter</a> | <a href="https://www.linkedin.com/in/reimertz" target="_blank">linkedin</a> | <a href="mailto:pierre.reimertz@gmail.com">contact me</a>`
 ---
 
 <Layout title="reimertz.co">
   <all-my-secret-api-keys></all-my-secret-api-keys>
   <main class="tre-d">
-    <p-3d three-d-text="night-mode" data-night-mode-toggle="true" class="night-mode">night-mode [x]</p-3d>
     <header>
-      <Box />
-      <Box />
-      <Box />
-      <Box />
       <img-3d class="me"></img-3d>
-      <p-3d three-d-text="" class="writer"></p-3d>
+      <p-3d three-d-text={introContent.replace(/<[^>]*>/g, '')} set:html={introContent}></p-3d>
     </header>
-
-    <section class="projects">
-      <header>
-        <p-3d-medium three-d-text="my most recent work/hacks.." class="green-bg">my most recent work/hacks/talks..</p-3d-medium>
-      </header>
-      <ol>
-        {projects.map((project) => (
-          <li class="project">
-            {project.url ? (
-              <a href={project.url} target={project.target}>
-                <img data-lazy={project.image} style={project.style || ''} />
-              </a>
-            ) : (
-              <a>
-                <img data-lazy={project.image} style={project.style || ''} />
-              </a>
-            )}
-            <span class={project.color}>
-              <b>{project.title}</b> {project.description}
-            </span>
-          </li>
-        ))}
-      </ol>
-    </section>
   </main>
 </Layout>

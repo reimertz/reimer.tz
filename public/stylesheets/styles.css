@@ -524,10 +524,11 @@ h1, h2, h3 {
 }
 a-box {
   display: inline-block;
-  margin-right: 0.0625rem;
+  margin-right: 0.5rem;
   width: 2rem;
   height: 2rem;
   opacity: 1;
+  cursor: pointer;
 }
 body.intro-is-done a-box > * {
   animation-name: fadeInFully;
@@ -661,9 +662,11 @@ p-3d,
 p-3d-medium,
 p-3d-large {
   display: inline-block;
+  white-space: pre-wrap;
   margin: 2rem 0;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
   position: relative;
 }
 section > header > p-3d,
@@ -698,6 +701,7 @@ p-3d-large:before {
   pointer-events: none;
   transform: translateZ(-80rem);
   opacity: 0.07;
+  white-space: pre-wrap;
 }
 p-3d.writer:before,
 p-3d-medium.writer:before,
@@ -777,35 +781,20 @@ img-3d:after {
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
   animation-name: iGrow;
-  background-size: 20.619rem 30rem;
-  width: 20.619rem;
+  background-size: 30rem 30rem;
+  object-fit: cover;
+  width: 30rem;
   transition: 2s filter linear;
 }
-a-box:hover + a-box + a-box + a-box + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) saturate(10);
-}
-a-box:hover + a-box + a-box + .me:after {
-  background-image: url("/images/me3.png");
-  opacity: 1;
-  filter: grayscale(0) hue-rotate(130deg) saturate(10);
-}
-a-box:hover + a-box + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) hue-rotate(280deg) saturate(10);
-}
-a-box:hover + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) hue-rotate(430deg) saturate(30);
-}
 .me:before {
-  background-image: url("/images/me.png");
+  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+  object-fit: cover;
+  border-radius: 20px;
 }
 .me:after {
-  background-image: url("/images/me.png");
+  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 @keyframes nightMode {
@@ -867,6 +856,34 @@ a-box:hover + .me:after {
   color: #1BFF90;
 }
 
+@keyframes hueRotation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    filter: hue-rotate(270deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+[data-lazy-status] {
+  transition: filter 1500ms;
+}
+
+[data-lazy-status=loading] {
+  animation-fill-mode: forwards;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-name: hueRotation;
+}
+
 @keyframes iGrow {
   0% {
     height: 0;
@@ -879,35 +896,20 @@ a-box:hover + .me:after {
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
   animation-name: iGrow;
-  background-size: 20.619rem 30rem;
-  width: 20.619rem;
+  background-size: 30rem 30rem;
+  object-fit: cover;
+  width: 30rem;
   transition: 2s filter linear;
 }
-a-box:hover + a-box + a-box + a-box + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) saturate(10);
-}
-a-box:hover + a-box + a-box + .me:after {
-  background-image: url("/images/me3.png");
-  opacity: 1;
-  filter: grayscale(0) hue-rotate(130deg) saturate(10);
-}
-a-box:hover + a-box + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) hue-rotate(280deg) saturate(10);
-}
-a-box:hover + .me:after {
-  opacity: 1;
-  background-image: url("/images/me3.png");
-  filter: grayscale(0) hue-rotate(430deg) saturate(30);
-}
 .me:before {
-  background-image: url("/images/me.png");
+  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+  object-fit: cover;
+  border-radius: 20px;
 }
 .me:after {
-  background-image: url("/images/me.png");
+  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 @keyframes hueRotation {
@@ -967,7 +969,7 @@ header p {
 .projects .project {
   display: inline-block;
   position: relative;
-  margin: 2rem 2rem 2rem 0;
+  margin: 0rem 2rem 2rem 0;
 }
 body[data-project-is-hovered=true] .projects .project:not(:hover) :before, body[data-project-is-hovered=true] .projects .project:not(:hover) span {
   opacity: 0;

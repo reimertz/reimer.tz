@@ -13,6 +13,9 @@ export default class Writer {
     this.el = elements
     this.s = string
     this.isWritingLink = false
+    this.isWritingMarquee = false
+    this.isWritingImage = false
+    this.marqueeWords = []
   }
 
   updateWriters(character) {
@@ -50,6 +53,53 @@ export default class Writer {
         }
         else {
           this.isWritingLink = false
+        }
+      }
+
+      else if (character === '%') {
+        if (!this.isWritingMarquee) {
+          // Extract marquee content
+          const marqueeContent = this.s.split('%')[0]
+
+          let marquee = document.createElement("marquee")
+          marquee.direction = 'up'
+          marquee.scrollamount = '2'
+          marquee.scrolldelay = '100'
+          marquee.textContent = marqueeContent
+
+          element.appendChild(marquee)
+
+          this.isWritingMarquee = true
+          this.s = this.s.substring(marqueeContent.length + 1, this.s.length)
+        }
+        else {
+          this.isWritingMarquee = false
+        }
+      }
+
+      else if (character === '^') {
+        if (!this.isWritingImage) {
+          // Extract image data: ^src^alt^
+          const imageData = this.s.split('^')[0]
+          const parts = imageData.split('|')
+          const src = parts[0]
+          const alt = parts[1] || ''
+
+          let img = document.createElement("img")
+          img.src = src
+          img.alt = alt
+          img.style.display = 'inline-block'
+          img.style.maxHeight = '1.2em'
+          img.style.verticalAlign = 'middle'
+          img.style.margin = '0 4px'
+
+          element.appendChild(img)
+
+          this.isWritingImage = true
+          this.s = this.s.substring(imageData.length + 1, this.s.length)
+        }
+        else {
+          this.isWritingImage = false
         }
       }
       else {
@@ -92,7 +142,7 @@ export default class Writer {
   }
 
   start() {
-    if ((this.getLastRead + 5000) < Date.now()) {
+    if (true || (this.getLastRead + 5000) < Date.now()) {
       this.updateLastRead()
       this.writer(true)
       this.isDone()

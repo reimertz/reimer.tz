@@ -65,29 +65,41 @@ export default class LazyLoader {
     this._throttler = setTimeout(() => {
       this._throttler = false
 
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const windowBottom = scrollTop + window.innerHeight
+      const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      )
+
+      // Check if user has scrolled to the bottom (within 10px threshold)
+      const isAtBottom = windowBottom >= documentHeight - 10
+
       this._elements = this._elements.map(element => {
         if (element === false) return false
         if (element.nodeName !== "IMG") return false
 
-        if ((element.getBoundingClientRect().top - this.offset)  < document.body.scrollTop) {
+        const elementTop = element.getBoundingClientRect().top + scrollTop
+
+        // Load if element is within offset distance from the viewport bottom, OR if we're at the bottom of the page
+        if (elementTop < windowBottom + this.offset || isAtBottom) {
           this.queue(element)
           return false
-        }
-
-        else {
+        } else {
           return element
         }
-      })
-
-      this._elements = this._elements.filter(element => {
-        if (element) return element
-      })
+      }).filter(element => element !== false)
 
     }, this.throttle)
   }
 
   queue(element) {
     this._queue.push(element)
+    // Set loading status immediately for all queued items
+    this.setStatus(element, 'loading')
 
     if (this._queue.length <= this.lines) {
       this.load(element)
@@ -95,8 +107,6 @@ export default class LazyLoader {
   }
 
   load(element) {
-    this.setStatus(element, 'loading')
-
     element.addEventListener('load', this.onLoad, false)
 
     if (!!this.fakeSlowness && (Math.random() <= (this.fakeSlowness.percentageOfImages))) {

@@ -30,10 +30,11 @@ $box-colors: #ee324b, #1BFF90, #D001D0, wheat;
 
 a-box {
   display: inline-block;
-  margin-right: $box-size/32;
+  margin-right: $box-size/4;
   width: $box-size;
   height: $box-size;
   opacity: 1;
+cursor: pointer;
 
   body.intro-is-done & > * {
     animation-name: fadeInFully;

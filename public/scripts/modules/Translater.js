@@ -1,8 +1,5 @@
 //Creator Pierre Reimertz MIT ETC ETC
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-
-
 export default class Translater {
 
   constructor(element, xRotation, yRotation) {
@@ -10,7 +7,8 @@ export default class Translater {
     this.yRotation = yRotation
     this.el = element
     this.throttler = false
-    this.moveEvent = isMobile ? 'touchmove' : 'mousemove'
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    this.moveEvent = this.isMobile ? 'touchmove' : 'mousemove'
 
     this.handleScroll = this.handleScroll.bind(this)
     this.handleMove = this.handleMove.bind(this)
@@ -39,8 +37,8 @@ export default class Translater {
 
       this.throttler = false
       requestAnimationFrame(() => {
-        if(isMobile) this.handleScroll(window.scrollY)
-        else         this.handleMove(event.clientX, event.clientY)
+        if(this.isMobile) this.handleScroll(window.scrollY)
+        else              this.handleMove(event.clientX, event.clientY)
       })
     }, 50)
 
