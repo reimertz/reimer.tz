@@ -87,6 +87,12 @@ ${renderList(security, '         ')}
   <script>
     import GlobalMusicPlayer from '../scripts/GlobalMusicPlayer'
 
+    declare global {
+      interface Window {
+        tinyTigerData: any
+      }
+    }
+
     const player = new GlobalMusicPlayer(window.tinyTigerData)
     player.start()
 
@@ -96,8 +102,11 @@ ${renderList(security, '         ')}
     trackLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault()
-        const trackIndex = parseInt(link.getAttribute('data-track-index'))
+        const trackIndexAttr = link.getAttribute('data-track-index')
+        if (!trackIndexAttr) return
+        const trackIndex = parseInt(trackIndexAttr)
         const playIcon = link.querySelector('.track-play')
+        if (!playIcon) return
 
         if (player.isPlaying && player.currentTrack === trackIndex) {
           // Pause current track
@@ -110,7 +119,10 @@ ${renderList(security, '         ')}
               `.track-link[data-track-index="${player.currentTrack}"]`
             )
             if (prevLink) {
-              prevLink.querySelector('.track-play').textContent = '▶'
+              const prevPlayIcon = prevLink.querySelector('.track-play')
+              if (prevPlayIcon) {
+                prevPlayIcon.textContent = '▶'
+              }
             }
           }
 
@@ -130,10 +142,13 @@ ${renderList(security, '         ')}
       link.addEventListener('click', (e) => {
         e.preventDefault()
         const videoIndex = link.getAttribute('data-video-index')
+        if (!videoIndex) return
         const toggle = link.querySelector('.video-toggle')
+        if (!toggle) return
         const videoContainer = document.querySelector(
           `.inline-video[data-video-index="${videoIndex}"]`
-        )
+        ) as HTMLElement | null
+        if (!videoContainer) return
 
         // Pause music if playing
         if (player.isPlaying) {
@@ -142,7 +157,10 @@ ${renderList(security, '         ')}
             `.track-link[data-track-index="${player.currentTrack}"]`
           )
           if (playingLink) {
-            playingLink.querySelector('.track-play').textContent = '▶'
+            const playingPlayIcon = playingLink.querySelector('.track-play')
+            if (playingPlayIcon) {
+              playingPlayIcon.textContent = '▶'
+            }
           }
         }
 
@@ -154,11 +172,14 @@ ${renderList(security, '         ')}
           // Close other videos first
           document.querySelectorAll('.inline-video').forEach((v) => {
             if (v !== videoContainer) {
-              v.style.display = 'none'
-              const oldIframe = v.querySelector('iframe')
-              const oldSrc = oldIframe.src
-              oldIframe.src = ''
-              oldIframe.src = oldSrc.replace('?autoplay=1', '?autoplay=0')
+              const vElement = v as HTMLElement
+              vElement.style.display = 'none'
+              const oldIframe = v.querySelector('iframe') as HTMLIFrameElement | null
+              if (oldIframe) {
+                const oldSrc = oldIframe.src
+                oldIframe.src = ''
+                oldIframe.src = oldSrc.replace('?autoplay=1', '?autoplay=0')
+              }
             }
           })
           document.querySelectorAll('.video-toggle').forEach((t) => {
@@ -168,17 +189,23 @@ ${renderList(security, '         ')}
           // Open this video
           videoContainer.style.display = 'block'
           toggle.textContent = '×'
-          const iframe = videoContainer.querySelector('iframe')
-          const originalSrc = iframe.getAttribute('src')
-          iframe.src = originalSrc.replace('?autoplay=0', '?autoplay=1')
+          const iframe = videoContainer.querySelector('iframe') as HTMLIFrameElement | null
+          if (iframe) {
+            const originalSrc = iframe.getAttribute('src')
+            if (originalSrc) {
+              iframe.src = originalSrc.replace('?autoplay=0', '?autoplay=1')
+            }
+          }
           videoContainer.scrollIntoView({
             behavior: 'smooth',
             block: 'nearest',
           })
         } else {
           // Close this video and stop playback
-          const iframe = videoContainer.querySelector('iframe')
-          iframe.src = ''
+          const iframe = videoContainer.querySelector('iframe') as HTMLIFrameElement | null
+          if (iframe) {
+            iframe.src = ''
+          }
           videoContainer.style.display = 'none'
           toggle.textContent = '▶'
         }

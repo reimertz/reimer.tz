@@ -1,6 +1,7 @@
-@import '../components/3d-me';
-@import '../components/lazy-loader';
-
+@use '../components/3d-me' as *;
+@use '../components/lazy-loader' as *;
+@use '../_variables' as *;
+@use '../helpers/mixins' as *;
 
 main {
   display: block;

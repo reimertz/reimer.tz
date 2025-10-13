@@ -1,19 +1,19 @@
-@import '_variables';
-@import 'helpers/mixins';
-@import 'helpers/modifiers';
+@use '_variables' as *;
+@use 'helpers/mixins' as *;
+@use 'helpers/modifiers' as *;
 
-@import 'libs/normalize';
+@use 'libs/normalize' as *;
 
-@import 'common/elements';
-@import 'common/headings';
+@use 'common/elements' as *;
+@use 'common/headings' as *;
 
-@import 'components/3d-box';
-@import 'components/3d-paragraph';
-@import 'components/3d-plane';
-@import 'components/3d-img';
-@import 'components/3d-me';
-@import 'components/night-mode';
-@import 'components/lazy-loader';
-@import 'components/inline-video';
+@use 'components/3d-box' as *;
+@use 'components/3d-paragraph' as *;
+@use 'components/3d-plane' as *;
+@use 'components/3d-img' as *;
+@use 'components/3d-me' as *;
+@use 'components/night-mode' as *;
+@use 'components/lazy-loader' as *;
+@use 'components/inline-video' as *;
 
-@import 'views/home';
+@use 'views/home' as *;

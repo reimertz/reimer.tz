@@ -1,3 +1,7 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:list';
+
 $box-size: 2rem;
 $box-colors: #ee324b, #1BFF90, #D001D0, wheat;
 
@@ -23,14 +27,14 @@ $box-colors: #ee324b, #1BFF90, #D001D0, wheat;
   north { background-color: $color; }
   east { background-color: $color; }
   south { background-color: $color; }
-  west { background-color: darken($color, 25); }
-  up { background-color: darken($color, 20); }
+  west { background-color: color.adjust($color, $lightness: -25%); }
+  up { background-color: color.adjust($color, $lightness: -20%); }
   down { background-color: $color; }
 }
 
 a-box {
   display: inline-block;
-  margin-right: $box-size/4;
+  margin-right: math.div($box-size, 4);
   width: $box-size;
   height: $box-size;
   opacity: 1;
@@ -61,15 +65,15 @@ cursor: pointer;
     z-index: -1;
   }
 
-  north { transform: translateZ($box-size/2); }
-  east { transform: rotateY( 90deg) translateZ($box-size/2); }
-  south { transform: rotateX(-90deg) translateZ($box-size/2); }
-  west { transform: rotateY(-90deg) translateZ($box-size/2); }
-  up { transform: rotateX( 90deg) translateZ($box-size/2); }
-  down { transform: rotateX(-90deg) translateZ($box-size/2); }
+  north { transform: translateZ(math.div($box-size, 2)); }
+  east { transform: rotateY( 90deg) translateZ(math.div($box-size, 2)); }
+  south { transform: rotateX(-90deg) translateZ(math.div($box-size, 2)); }
+  west { transform: rotateY(-90deg) translateZ(math.div($box-size, 2)); }
+  up { transform: rotateX( 90deg) translateZ(math.div($box-size, 2)); }
+  down { transform: rotateX(-90deg) translateZ(math.div($box-size, 2)); }
 
   @each $color in $box-colors {
-    $i: index($box-colors, $color);
+    $i: list.index($box-colors, $color);
     &:nth-child(#{$i}) {
       @include box-color($color);
 

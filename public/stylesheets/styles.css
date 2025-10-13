@@ -665,7 +665,6 @@ p-3d-large {
   display: inline-block;
   white-space: pre-wrap;
   margin: 2rem 0;
-  display: inline-block;
   font-size: 1.2rem;
   line-height: 1.8rem;
   position: relative;
@@ -914,62 +913,6 @@ img-3d:after {
 .track-link:hover .track-play,
 .video-link:hover .video-toggle {
   transform: scaleX(0.7) scale(1.2);
-}
-
-@keyframes iGrow {
-  0% {
-    height: 0;
-  }
-  100% {
-    height: 30rem;
-  }
-}
-.me {
-  animation-fill-mode: forwards;
-  animation-duration: 1500ms;
-  animation-name: iGrow;
-  background-size: 30rem 30rem;
-  object-fit: cover;
-  width: 30rem;
-  transition: 2s filter linear;
-}
-.me:before {
-  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
-  object-fit: cover;
-  border-radius: 20px;
-}
-.me:after {
-  background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-@keyframes hueRotation {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  25% {
-    filter: hue-rotate(90deg);
-  }
-  50% {
-    filter: hue-rotate(180deg);
-  }
-  75% {
-    filter: hue-rotate(270deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-[data-lazy-status] {
-  transition: filter 1500ms;
-}
-
-[data-lazy-status=loading] {
-  animation-fill-mode: forwards;
-  animation-duration: 3000ms;
-  animation-iteration-count: infinite;
-  animation-name: hueRotation;
 }
 
 main {

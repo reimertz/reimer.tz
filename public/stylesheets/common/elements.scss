@@ -1,7 +1,10 @@
-@import '../_variables';
+@use '../_variables' as *;
+@use '../helpers/mixins' as *;
+@use 'sass:math';
+@use 'sass:list';
 
 html {
-  font: normal #{$base-size}px / #{$leading / $base-size} $base-font;
+  font: normal #{$base-size}px / #{math.div($leading, $base-size)} $base-font;
   color: black;
   overflow-x: hidden;
   overflow-y: auto;
@@ -51,7 +54,7 @@ $link-colors: #1BFF90;
 
 p, p-3d {
   @each $color in $link-colors {
-  $i: index($link-colors, $color);
+  $i: list.index($link-colors, $color);
 
   a:nth-child(n + #{$i}) {
     padding: 0 0.5rem;
