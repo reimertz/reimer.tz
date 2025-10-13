@@ -1,8 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
   "exclude": [
-    "gulpfile.js",
-    "src-jade/**/*",
     "public/scripts/**/*",
     "public/where-is-pieter-levels/**/*"
   ]

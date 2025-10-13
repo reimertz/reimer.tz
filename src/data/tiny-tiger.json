@@ -1,14 +1,15 @@
 [
   {
-    "name": "when i go (slow club cover)",
-    "url": "/when-i-go/"
+    "name": "lansvag 205",
+    "url": "#",
+    "videoSrc": "/lansvag/Pierre_Reimertz_Lansvag_205_small.mp4",
+    "aspectRatio": "9 / 16"
   },
   {
-    "name": "demo: the night is young",
-    "url": "/the-night-is-young/"
-  },
-  {
-    "name": "demo: when i go",
-    "url": "/when-i-go/"
+    "name": "when i go",
+    "url": "/when-i-go/",
+    "audioSrc": "/when-i-go/pierre-reimertz-when-i-go.mp3",
+    "videoSrc": "/when-i-go/video_short.mp4",
+    "aspectRatio": "9 / 16"
   }
 ]

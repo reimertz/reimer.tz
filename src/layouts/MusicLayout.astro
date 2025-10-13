@@ -190,7 +190,7 @@ const { title, songTitle, subtitle, videoSrc, audioSrc } = Astro.props
       )}
     </section>
 
-    <script>
+    <script is:inline>
       const sources = [
         document.querySelector('video'),
         document.querySelector('audio'),
@@ -200,12 +200,14 @@ const { title, songTitle, subtitle, videoSrc, audioSrc } = Astro.props
       const pauseButton = document.querySelector('.pause')
 
       function toggleSong(shouldPlay) {
-        document.body.setAttribute('data-playing', shouldPlay)
-        sources.forEach((source) => source[shouldPlay ? 'play' : 'pause']())
+        document.body.setAttribute('data-playing', shouldPlay.toString())
+        sources.forEach((source) => {
+          if (source) source[shouldPlay ? 'play' : 'pause']()
+        })
       }
 
-      playButton.addEventListener('click', () => toggleSong(true))
-      pauseButton.addEventListener('click', () => toggleSong(false))
+      if (playButton) playButton.addEventListener('click', () => toggleSong(true))
+      if (pauseButton) pauseButton.addEventListener('click', () => toggleSong(false))
     </script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Box from '../components/Box.astro'
 import currentWork from '../data/current-work.json'
 import previous from '../data/previous.json'
 import art from '../data/art.json'
@@ -11,13 +10,26 @@ import openSource from '../data/open-source.json'
 import hacks from '../data/hacks.json'
 import security from '../data/security.json'
 
-const renderList = (items: any[], prefix = '') => {
-  return items.map((item, i) => {
-    const symbol = i === items.length - 1 ? '╰' : '├'
-    const link = item.url ? `<a href="${item.url}" target="_blank">${item.name}</a>` : item.name
-    const desc = item.description ? ` - ${item.description}` : ''
-    return `${prefix}${symbol} ${link}${desc}`
-  }).join('\n')
+const renderList = (items: any[], prefix = '', options: any = {}) => {
+  return items
+    .map((item, i) => {
+      const symbol = i === items.length - 1 ? '╰' : '├'
+      let link
+      if (options.addPlayButton) {
+        link = `<a href="#" class="track-link" data-track-index="${i}">${item.name} <span class="track-play">▶</span></a>`
+      } else if (options.addVideoButton && item.videoId) {
+        const aspectRatio = item.aspectRatio || '16 / 9'
+        const videoContainer = `<div class="inline-video" data-video-index="${i}" style="display: none;"><iframe class="youtube-iframe" style="aspect-ratio: ${aspectRatio};" src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`
+        link = `<a href="#" class="video-link" data-video-index="${i}">${item.name} <span class="video-toggle">▶</span></a>${videoContainer}`
+      } else {
+        link = item.url
+          ? `<a href="${item.url}" target="_blank">${item.name}</a>`
+          : item.name
+      }
+      const desc = item.description ? ` - ${item.description}` : ''
+      return `${prefix}${symbol} ${link}${desc}`
+    })
+    .join('\n')
 }
 
 const introContent = `hi, my name is piérre reimertz.
@@ -35,13 +47,13 @@ art ╮
 ${renderList(art, '    ')}
 
 talks ╮
-${renderList(talks, '      ')}
+${renderList(talks, '      ', { addVideoButton: true })}
 
 projects ╮
 ${renderList(projectsList, '         ')}
 
 tiny tiger ╮
-${renderList(tinyTiger, '    ').replace(/target="_blank"/g, '')}
+${renderList(tinyTiger, '    ', { addPlayButton: true }).replace(/target="_blank"/g, '')}
 
 ╭ open-source
 ${renderList(openSource)}
@@ -52,9 +64,8 @@ ${renderList(hacks, '      ')}
 security ╮
 ${renderList(security, '         ')}
 
-creativity is my addiction.
 
-<a href="http://github.com/reimertz" target="_blank">github</a> | <a href="http://twitter.com/reimertz" target="_blank">twitter</a> | <a href="https://www.linkedin.com/in/reimertz" target="_blank">linkedin</a> | <a href="mailto:pierre.reimertz@gmail.com">contact me</a>`
+<a href="http://github.com/reimertz" target="_blank">github</a> | <a href="http://x.com/reimertz" target="_blank">x</a> | <a href="https://www.linkedin.com/in/reimertz" target="_blank">linkedin</a> | <a href="mailto:pierre.reimertz@gmail.com">contact me</a>`
 ---
 
 <Layout title="reimertz.co">
@@ -62,7 +73,112 @@ creativity is my addiction.
   <main class="tre-d">
     <header>
       <img-3d class="me"></img-3d>
-      <p-3d three-d-text={introContent.replace(/<[^>]*>/g, '')} set:html={introContent}></p-3d>
+      <p-3d
+        three-d-text={introContent.replace(/<[^>]*>/g, '')}
+        set:html={introContent}
+      />
     </header>
   </main>
+
+  <script type="module" is:inline define:vars={{ tinyTigerData: tinyTiger }}>
+    import GlobalMusicPlayer from '/scripts/modules/GlobalMusicPlayer.js'
+
+    const player = new GlobalMusicPlayer(tinyTigerData)
+    player.start()
+
+    // Music player for tiny tiger tracks
+    const trackLinks = document.querySelectorAll('.track-link')
+
+    trackLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        const trackIndex = parseInt(link.getAttribute('data-track-index'))
+        const playIcon = link.querySelector('.track-play')
+
+        if (player.isPlaying && player.currentTrack === trackIndex) {
+          // Pause current track
+          player.pause()
+          playIcon.textContent = '▶'
+        } else {
+          // Stop previous track
+          if (player.isPlaying) {
+            const prevLink = document.querySelector(
+              `.track-link[data-track-index="${player.currentTrack}"]`
+            )
+            if (prevLink) {
+              prevLink.querySelector('.track-play').textContent = '▶'
+            }
+          }
+
+          // Play new track
+          player.currentTrack = trackIndex
+          player.loadTrack(trackIndex)
+          player.play()
+          playIcon.textContent = '⏸'
+        }
+      })
+    })
+
+    // YouTube inline video for talks
+    const videoLinks = document.querySelectorAll('.video-link')
+
+    videoLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        const videoIndex = link.getAttribute('data-video-index')
+        const toggle = link.querySelector('.video-toggle')
+        const videoContainer = document.querySelector(
+          `.inline-video[data-video-index="${videoIndex}"]`
+        )
+
+        // Pause music if playing
+        if (player.isPlaying) {
+          player.pause()
+          const playingLink = document.querySelector(
+            `.track-link[data-track-index="${player.currentTrack}"]`
+          )
+          if (playingLink) {
+            playingLink.querySelector('.track-play').textContent = '▶'
+          }
+        }
+
+        // Toggle video
+        if (
+          videoContainer.style.display === 'none' ||
+          !videoContainer.style.display
+        ) {
+          // Close other videos first
+          document.querySelectorAll('.inline-video').forEach((v) => {
+            if (v !== videoContainer) {
+              v.style.display = 'none'
+              const oldIframe = v.querySelector('iframe')
+              const oldSrc = oldIframe.src
+              oldIframe.src = ''
+              oldIframe.src = oldSrc.replace('?autoplay=1', '?autoplay=0')
+            }
+          })
+          document.querySelectorAll('.video-toggle').forEach((t) => {
+            if (t !== toggle) t.textContent = '▶'
+          })
+
+          // Open this video
+          videoContainer.style.display = 'block'
+          toggle.textContent = '×'
+          const iframe = videoContainer.querySelector('iframe')
+          const originalSrc = iframe.getAttribute('src')
+          iframe.src = originalSrc.replace('?autoplay=0', '?autoplay=1')
+          videoContainer.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+          })
+        } else {
+          // Close this video and stop playback
+          const iframe = videoContainer.querySelector('iframe')
+          iframe.src = ''
+          videoContainer.style.display = 'none'
+          toggle.textContent = '▶'
+        }
+      })
+    })
+  </script>
 </Layout>

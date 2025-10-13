@@ -48,7 +48,7 @@ const { title } = Astro.props
 
     <slot />
 
-    <script type="module">
+    <script type="module" is:inline>
       import Translater from '/scripts/modules/Translater.js'
       import CursorFriend from '/scripts/modules/CursorFriend.js'
       import LinkColorizer from '/scripts/modules/LinkColorizer.js'
