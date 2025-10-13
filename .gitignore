@@ -28,4 +28,7 @@ pnpm-debug.log*
 .idea/
 
 # project-specific
+
+dist
+
 public/lansvag/
