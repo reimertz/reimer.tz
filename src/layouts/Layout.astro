@@ -1,0 +1,63 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" class="night-mode-off">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Where the web makes sense" />
+    <meta name="keywords" content="Pierre Reimertz Web Developer" />
+    <meta name="author" content="Piérre Reimertz" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+  </head>
+  <body>
+    <!-- Google Analytics 4 (GA4) -->
+    <!-- TODO: Replace 'G-XXXXXXXXXX' with your actual GA4 Measurement ID from Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+      is:inline></script>
+    <script type="text/javascript" is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-XXXXXXXXXX')
+    </script>
+
+    <slot />
+
+    <script>
+      import Translater from '../scripts/Translater'
+      import CursorFriend from '../scripts/CursorFriend'
+      import LinkColorizer from '../scripts/LinkColorizer'
+
+      // Initialize everything when DOM is ready
+      document.addEventListener('DOMContentLoaded', function () {
+        const translater = new Translater(
+          document.querySelector('.tre-d'),
+          10,
+          10
+        )
+
+        const cF = new CursorFriend({ selector: 'body' })
+        const linkColorizer = new LinkColorizer({})
+
+        // Start everything
+        requestAnimationFrame(() => {
+          translater.start()
+          cF.start()
+          linkColorizer.start()
+        })
+      })
+    </script>
+  </body>
+</html>

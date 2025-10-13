@@ -1,0 +1,30 @@
+.inline-video {
+  margin: 1rem 0 1rem 2rem;
+  width: 100%;
+}
+
+.youtube-iframe {
+  max-width: 100%;
+  max-height: 100vh;
+  display: block;
+  border-radius: 4px;
+}
+
+.track-link,
+.video-link {
+  text-decoration: none;
+}
+
+.track-play,
+.video-toggle {
+  font-family: monospace;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  display: inline-block;
+  transform: scaleX(0.7);
+}
+
+.track-link:hover .track-play,
+.video-link:hover .video-toggle {
+  transform: scaleX(0.7) scale(1.2);
+}

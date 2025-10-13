@@ -1,0 +1,213 @@
+---
+export interface Props {
+  title: string
+  songTitle: string
+  subtitle?: string
+  videoSrc?: string
+  audioSrc?: string
+}
+
+const { title, songTitle, subtitle, videoSrc, audioSrc } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" />
+  </head>
+  <style>
+    @media (max-width: 400px) {
+      html {
+        font-size: 6px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      html {
+        font-size: 8px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      html {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-height: 300px) {
+      html {
+        font-size: 2px;
+      }
+    }
+
+    body {
+      background-color: black;
+      margin: 0;
+      font-family: monospace;
+    }
+
+    body,
+    html {
+      transition: font-size 2000ms;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1,
+    h3 {
+      transition: all 500ms;
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: white;
+      font-family: monospace;
+    }
+
+    h3 {
+      background-color: white;
+      color: black;
+      padding: 1rem;
+      font-family: monospace;
+    }
+
+    h3 a {
+      color: black;
+      text-decoration: none;
+    }
+
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100vw;
+      min-height: 100vh;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 30s;
+      z-index: 0;
+    }
+
+    section {
+      z-index: 1337;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    pre {
+      max-width: 600px;
+      white-space: pre-wrap;
+      font-family: monospace;
+      line-height: 1.6;
+      color: white;
+    }
+
+    svg {
+      cursor: pointer;
+      display: inline;
+      fill: white;
+      width: 8rem;
+      transition: all 500ms;
+      padding: 1rem;
+      user-select: none;
+    }
+
+    svg.pause {
+      display: none;
+    }
+
+    body[data-playing='true'] svg.pause {
+      display: inline;
+    }
+
+    body[data-playing='true'] svg.play {
+      display: none;
+    }
+
+    body[data-playing='true'] section h1,
+    body[data-playing='true'] section h3,
+    body[data-playing='true'] section pre {
+      opacity: 0.05;
+    }
+
+    body[data-playing='true'] section svg {
+      opacity: 0.2;
+    }
+
+    body[data-playing='true'] video,
+    body[data-playing='true'] section svg:hover {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    {videoSrc && (
+      <video loop playsinline>
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+    )}
+
+    <section>
+      <h3><a href="/">REIMERTZ.CO</a></h3>
+
+      <svg class="play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        ></path>
+      </svg>
+      <svg class="pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"
+        ></path>
+      </svg>
+
+      <h1>{songTitle}</h1>
+      {subtitle && <h3 set:html={subtitle}></h3>}
+
+      <slot />
+
+      {audioSrc && (
+        <audio>
+          <source src={audioSrc} type="audio/mpeg" />
+        </audio>
+      )}
+    </section>
+
+    <script is:inline>
+      const sources = [
+        document.querySelector('video'),
+        document.querySelector('audio'),
+      ].filter(Boolean)
+
+      const playButton = document.querySelector('.play')
+      const pauseButton = document.querySelector('.pause')
+
+      function toggleSong(shouldPlay) {
+        document.body.setAttribute('data-playing', shouldPlay.toString())
+        sources.forEach((source) => {
+          if (source) source[shouldPlay ? 'play' : 'pause']()
+        })
+      }
+
+      if (playButton) playButton.addEventListener('click', () => toggleSong(true))
+      if (pauseButton) pauseButton.addEventListener('click', () => toggleSong(false))
+    </script>
+  </body>
+</html>

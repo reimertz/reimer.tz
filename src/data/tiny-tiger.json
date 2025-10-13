@@ -1,0 +1,15 @@
+[
+  {
+    "name": "lansvag 205",
+    "url": "#",
+    "videoSrc": "https://pub-8c16a53abaab4a5faa0447ac79e7b835.r2.dev/Pierre_Reimertz_Lansvag_205_small.mp4",
+    "aspectRatio": "9 / 16"
+  },
+  {
+    "name": "when i go",
+    "url": "/when-i-go/",
+    "audioSrc": "/when-i-go/pierre-reimertz-when-i-go.mp3",
+    "videoSrc": "/when-i-go/video_short.mp4",
+    "aspectRatio": "9 / 16"
+  }
+]

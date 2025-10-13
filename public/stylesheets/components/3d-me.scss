@@ -1,0 +1,36 @@
+$me-size: 30rem;
+
+@keyframes iGrow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: $me-size;
+  }
+}
+
+.me {
+
+
+  animation-fill-mode: forwards;
+  animation-duration: 1500ms;
+  animation-name: iGrow;
+  background-size: $me-size $me-size;
+  object-fit: cover;
+  width: $me-size ;
+  transition: 2s filter linear;
+
+  &:before {
+    background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+    object-fit: cover;;
+    border-radius: 20px;
+
+  }
+
+  &:after {
+    background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
+    object-fit: cover;;
+    border-radius: 20px;
+
+  }
+}

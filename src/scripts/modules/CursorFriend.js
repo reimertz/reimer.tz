@@ -1,54 +1,63 @@
 //Creator Pierre Reimertz MIT ETC ETC
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
 export default class CursorFriend {
 
-  constructor({selector = 'data-cursor-friend', spanSelector = 'span'}) {
+  constructor({selector, friend}) {
+    this.friend = friend
     this.selector = selector
-    this.spanSelector = spanSelector
+    this.elements = [].slice.call(document.querySelectorAll(this.selector))
+    this.throttler = false
+    this._active = false
 
-    this._elements = [].slice.call(document.querySelectorAll(`${ this.selector }`))
-
-    this.onEnter = this.onEnter.bind(this)
-    this.onMove = this.onMove.bind(this)
-    this.onLeave = this.onLeave.bind(this)
+    this.createFriend()
+    this.bindEvents()
   }
 
-  start() {
-    if(isMobile) return
-    this._elements.map(element => {
-      element.addEventListener('mouseenter', this.onEnter)
-      element.addEventListener('mouseleave', this.onLeave)
-    })
+  createFriend() {
+    if (this.friend) return
+
+    this.friend = document.createElement('aside')
+    this.friend.className = 'cursor-friend'
+    document.body.appendChild(this.friend)
   }
 
   onEnter(event) {
-    document.body.setAttribute('data-project-is-hovered', 'true');
-    //event.currentTarget.addEventListener('mousemove', this.onMove)
+    clearTimeout(this.throttler)
+    this.friend.style.opacity = 1
   }
 
   onMove(event) {
-    let span = event.currentTarget.querySelector(this.spanSelector)
+    if (this.throttler) return
 
-    let x = event.screenX
-    let y = event.screenY
+    this.throttler = setTimeout(() => {
+      this.throttler = false
 
-    span.style.top = (y/10 - 50) + 'px'
-    span.style.left = (x/10 - 50) + 'px'
+      this.friend.style.left = event.clientX + 'px'
+      this.friend.style.top = event.clientY + 'px'
+    }, 25)
   }
 
   onLeave(event) {
-    document.body.setAttribute('data-project-is-hovered', 'false');
-    //event.currentTarget.removeEventListener('mousemove', this.onMove)
+    this.throttler = setTimeout(() => {
+      this.throttler = false
+      this.friend.style.opacity = 0
+    }, 100)
   }
 
-  stop() {
-    this._elements.map(element => {
-      element.removeEventListener('mouseenter', this.onEnter)
-      element.removeEventListener('mouseleave', this.onLeave)
+  bindEvents() {
+    this.elements.map((element, index) => {
+      element.addEventListener('mouseenter', this.onEnter.bind(this), false)
+      element.addEventListener('mousemove', this.onMove.bind(this), false)
+      element.addEventListener('mouseleave', this.onLeave.bind(this), false)
     })
   }
 
-  pause() {
-    this.stop()
+  start() {
+    if (this._active) return
+    this._active = true
+  }
+
+  stop() {
+    this._active = false
   }
 }
