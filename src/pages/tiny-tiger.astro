@@ -48,6 +48,13 @@ ${renderList(tinyTiger, '', { addPlayButton: true }).replace(/target="_blank"/g,
   <script>
     import GlobalMusicPlayer from '../scripts/GlobalMusicPlayer'
 
+    // Declare window.tinyTigerData type
+    declare global {
+      interface Window {
+        tinyTigerData: any
+      }
+    }
+
     const player = new GlobalMusicPlayer(window.tinyTigerData)
     player.start()
 
@@ -57,8 +64,12 @@ ${renderList(tinyTiger, '', { addPlayButton: true }).replace(/target="_blank"/g,
     trackLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault()
-        const trackIndex = parseInt(link.getAttribute('data-track-index'))
+        const trackIndexAttr = link.getAttribute('data-track-index')
+        if (!trackIndexAttr) return
+
+        const trackIndex = parseInt(trackIndexAttr)
         const playIcon = link.querySelector('.track-play')
+        if (!playIcon) return
 
         if (player.isPlaying && player.currentTrack === trackIndex) {
           // Pause current track
@@ -71,7 +82,10 @@ ${renderList(tinyTiger, '', { addPlayButton: true }).replace(/target="_blank"/g,
               `.track-link[data-track-index="${player.currentTrack}"]`
             )
             if (prevLink) {
-              prevLink.querySelector('.track-play').textContent = '▶'
+              const prevPlayIcon = prevLink.querySelector('.track-play')
+              if (prevPlayIcon) {
+                prevPlayIcon.textContent = '▶'
+              }
             }
           }
 
