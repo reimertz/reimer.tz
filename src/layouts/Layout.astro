@@ -51,18 +51,12 @@ const { title } = Astro.props
         const cF = new CursorFriend({ selector: 'body' })
         const linkColorizer = new LinkColorizer({})
 
-        // Start lightweight animations immediately
+        // Start everything immediately
         requestAnimationFrame(() => {
           translater.start()
           cF.start()
+          linkColorizer.start()
         })
-
-        // Delay expensive LinkColorizer until after initial paint
-        setTimeout(() => {
-          requestAnimationFrame(() => {
-            linkColorizer.start()
-          })
-        }, 500)
       })
     </script>
   </body>
