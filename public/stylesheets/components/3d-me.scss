@@ -2,10 +2,10 @@ $me-size: 30rem;
 
 @keyframes iGrow {
   0% {
-    height: 0;
+    transform: translateZ(0) scaleY(0);
   }
   100% {
-    height: $me-size;
+    transform: translateZ(0) scaleY(1);
   }
 }
 
@@ -13,11 +13,14 @@ $me-size: 30rem;
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
   animation-name: iGrow;
+  animation-timing-function: ease-out;
   background-size: $me-size $me-size;
   object-fit: cover;
-  width: $me-size ;
-  transition: 2s filter linear;
+  width: $me-size;
+  height: $me-size;
+  transition: filter 2s linear;
   transform: translateZ(0);
+  transform-origin: center top;
   will-change: transform, filter;
 
   &:before {
