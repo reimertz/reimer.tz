@@ -10,6 +10,8 @@ export default class LinkColorizer {
     this.mode = mode // 'multi' or 'mono'
     this.monoColor = monoColor
     this.colorTarget = colorTarget // 'text' or 'background'
+    this.frameSkipCount = 0
+    this.frameSkipInterval = 3 // Only update every 3rd frame for performance
 
     // Color palette from the 3D boxes - strongest colors against black
     this.colors = [
@@ -112,6 +114,12 @@ export default class LinkColorizer {
         link.dataset.colorizerInit = 'true'
       }
 
+      // Only update if color changed to avoid unnecessary repaints
+      const currentColor = link.dataset.currentColor
+      if (currentColor === color) return
+
+      link.dataset.currentColor = color
+
       if (this.colorTarget === 'text') {
         // Colorize text, keep background black
         link.style.color = color
@@ -159,6 +167,14 @@ export default class LinkColorizer {
 
     this.rafId = requestAnimationFrame(() => {
       this.rafId = null
+
+      // Skip frames for performance - only update every Nth frame
+      this.frameSkipCount++
+      if (this.frameSkipCount < this.frameSkipInterval) {
+        return
+      }
+      this.frameSkipCount = 0
+
       this.handleScroll()
     })
   }
