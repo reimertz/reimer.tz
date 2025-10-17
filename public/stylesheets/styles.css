@@ -408,6 +408,7 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
   background: white;
+  scroll-behavior: smooth;
 }
 @media only screen and (max-width: 480px) {
   html {
@@ -531,6 +532,8 @@ a-box {
   height: 2rem;
   opacity: 1;
   cursor: pointer;
+  will-change: transform;
+  transform: translateZ(0);
 }
 body.intro-is-done a-box > * {
   animation-name: fadeInFully;
@@ -667,8 +670,10 @@ p-3d-large {
   white-space: pre-wrap;
   margin: 2rem 0;
   font-size: 1.2rem;
-  line-height: 1.8rem;
+  line-height: 2.1rem;
   position: relative;
+  will-change: transform;
+  transform: translateZ(0);
 }
 section > header > p-3d,
 section > header > p-3d-medium,
@@ -745,6 +750,8 @@ plane-3d:after {
 img-3d {
   display: block;
   position: relative;
+  will-change: transform;
+  transform: translateZ(0);
 }
 img-3d:before {
   position: absolute;
@@ -786,6 +793,8 @@ img-3d:after {
   object-fit: cover;
   width: 30rem;
   transition: 2s filter linear;
+  transform: translateZ(0);
+  will-change: transform, filter;
 }
 .me:before {
   background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");
