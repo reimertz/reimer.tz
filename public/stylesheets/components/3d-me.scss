@@ -10,8 +10,6 @@ $me-size: 30rem;
 }
 
 .me {
-
-
   animation-fill-mode: forwards;
   animation-duration: 1500ms;
   animation-name: iGrow;
@@ -19,6 +17,8 @@ $me-size: 30rem;
   object-fit: cover;
   width: $me-size ;
   transition: 2s filter linear;
+  transform: translateZ(0);
+  will-change: transform, filter;
 
   &:before {
     background-image: url("https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail");

@@ -4,8 +4,7 @@ export default class LinkColorizer {
 
   constructor({ mode = 'multi', monoColor = '#1BFF90', colorTarget = 'text' } = {}) {
     this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-    this.throttler = false
-    this.scrollThrottler = false
+    this.rafId = null
     this.lastMouseX = window.innerWidth / 2
     this.lastMouseY = window.innerHeight / 2
     this.mode = mode // 'multi' or 'mono'
@@ -46,13 +45,27 @@ export default class LinkColorizer {
     ]
 
     this.links = []
+    this.linkPositions = []
 
     this.handleMouseEvent = this.handleMouseEvent.bind(this)
     this.handleScrollEvent = this.handleScrollEvent.bind(this)
+    this.cachePositions = this.cachePositions.bind(this)
   }
 
   refreshLinks() {
     this.links = Array.from(document.querySelectorAll('a'))
+    this.cachePositions()
+  }
+
+  cachePositions() {
+    // Cache link positions to avoid expensive getBoundingClientRect calls on every frame
+    this.linkPositions = this.links.map(link => {
+      const rect = link.getBoundingClientRect()
+      return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2 + window.pageYOffset
+      }
+    })
   }
 
   getColorFromPosition(x, y) {
@@ -69,13 +82,15 @@ export default class LinkColorizer {
       monoRandomColor = this.colors[colorIndex]
     }
 
-    this.links.forEach((link, index) => {
-      const rect = link.getBoundingClientRect()
-      const linkX = rect.left + rect.width / 2
-      const linkY = rect.top + rect.height / 2
+    // Adjust y for scroll offset
+    const adjustedY = y + window.pageYOffset
 
-      // Calculate distance from cursor/scroll position to link
-      const distance = Math.sqrt(Math.pow(linkX - x, 2) + Math.pow(linkY - y, 2))
+    this.links.forEach((link, index) => {
+      const position = this.linkPositions[index]
+      if (!position) return
+
+      // Calculate distance from cursor/scroll position to link (using cached positions)
+      const distance = Math.sqrt(Math.pow(position.x - x, 2) + Math.pow(position.y - adjustedY, 2))
 
       // Pick color based on mode
       let color
@@ -84,15 +99,18 @@ export default class LinkColorizer {
         color = monoRandomColor
       } else {
         // Multi mode: each link gets a different color based on position and distance
-        const colorIndex = Math.floor((linkX + linkY + distance) / 100) % this.colors.length
+        const colorIndex = Math.floor((position.x + position.y + distance) / 100) % this.colors.length
         color = this.colors[colorIndex]
       }
 
-      // No opacity, no transition - just solid colors that snap instantly
-      link.style.transition = 'none'
-      link.style.padding = '2px 20px'
-      link.style.borderRadius = '20px'
-
+      // Set base styles once (check if already set to avoid redundant updates)
+      if (!link.dataset.colorizerInit) {
+        link.style.transition = 'none'
+        link.style.padding = '2px 20px'
+        link.style.borderRadius = '20px'
+        link.style.willChange = 'color, background-color'
+        link.dataset.colorizerInit = 'true'
+      }
 
       if (this.colorTarget === 'text') {
         // Colorize text, keep background black
@@ -128,25 +146,21 @@ export default class LinkColorizer {
   }
 
   handleMouseEvent(event) {
-    if (this.throttler) return
+    if (this.rafId) return
 
-    this.throttler = setTimeout(() => {
-      this.throttler = false
-      requestAnimationFrame(() => {
-        this.handleMouseMove(event)
-      })
-    }, 50)
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null
+      this.handleMouseMove(event)
+    })
   }
 
   handleScrollEvent() {
-    if (this.scrollThrottler) return
+    if (this.rafId) return
 
-    this.scrollThrottler = setTimeout(() => {
-      this.scrollThrottler = false
-      requestAnimationFrame(() => {
-        this.handleScroll()
-      })
-    }, 50)
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null
+      this.handleScroll()
+    })
   }
 
   start() {
@@ -155,11 +169,20 @@ export default class LinkColorizer {
     // Only listen to scroll (both desktop and mobile)
     window.addEventListener('scroll', this.handleScrollEvent, { passive: true })
 
+    // Recache positions on resize
+    window.addEventListener('resize', this.cachePositions, { passive: true })
+
     // Initial color on load
     this.handleScroll()
   }
 
   stop() {
     window.removeEventListener('scroll', this.handleScrollEvent)
+    window.removeEventListener('resize', this.cachePositions)
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId)
+      this.rafId = null
+    }
   }
 }

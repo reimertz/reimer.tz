@@ -38,7 +38,9 @@ a-box {
   width: $box-size;
   height: $box-size;
   opacity: 1;
-cursor: pointer;
+  cursor: pointer;
+  will-change: transform;
+  transform: translateZ(0);
 
   body.intro-is-done & > * {
     animation-name: fadeInFully;

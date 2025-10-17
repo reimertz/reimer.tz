@@ -21,6 +21,8 @@ export default class GlobalMusicPlayer {
     this.videoElement = document.createElement('video')
     this.videoElement.loop = true
     this.videoElement.playsinline = true
+    this.videoElement.setAttribute('playsinline', '') // For iOS
+    this.videoElement.setAttribute('webkit-playsinline', '') // For older iOS
     this.videoElement.muted = false
     this.videoElement.style.position = 'fixed'
     this.videoElement.style.top = '50%'
@@ -85,6 +87,10 @@ export default class GlobalMusicPlayer {
         console.warn('Video playback failed:', error)
         // Autoplay was likely blocked by browser
       })
+    } else {
+      // If this track has no video, pause and hide any playing video
+      this.videoElement.pause()
+      this.videoElement.style.opacity = '0'
     }
   }
 

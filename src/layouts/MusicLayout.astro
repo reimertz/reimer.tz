@@ -157,7 +157,7 @@ const { title, songTitle, subtitle, videoSrc, audioSrc } = Astro.props
   </style>
   <body>
     {videoSrc && (
-      <video loop playsinline>
+      <video loop playsinline webkit-playsinline>
         <source src={videoSrc} type="video/mp4" />
       </video>
     )}

@@ -6,7 +6,7 @@ export default class Translater {
     this.xRotation = xRotation
     this.yRotation = yRotation
     this.el = element
-    this.throttler = false
+    this.rafId = null
     this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
     this.moveEvent = this.isMobile ? 'touchmove' : 'mousemove'
 
@@ -31,25 +31,26 @@ export default class Translater {
   }
 
   handleEvent(event) {
-    if(this.throttler) return
+    if(this.rafId) return
 
-    this.throttler = setTimeout(() => {
-
-      this.throttler = false
-      requestAnimationFrame(() => {
-        if(this.isMobile) this.handleScroll(window.scrollY)
-        else              this.handleMove(event.clientX, event.clientY)
-      })
-    }, 50)
-
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null
+      if(this.isMobile) this.handleScroll(window.scrollY)
+      else              this.handleMove(event.clientX, event.clientY)
+    })
   }
 
   start() {
-    document.body.addEventListener(this.moveEvent, this.handleEvent)
+    document.body.addEventListener(this.moveEvent, this.handleEvent, { passive: true })
   }
 
   stop() {
     document.body.removeEventListener(this.moveEvent, this.handleEvent)
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId)
+      this.rafId = null
+    }
   }
 
   pause() {
