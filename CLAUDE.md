@@ -2,7 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-
 ## Project Overview
 
 This is a personal portfolio website for Pierre Reimertz built with Astro. The site features a creative 3D interface with interactive elements, night mode, lazy loading, and a typewriter-style intro animation.
