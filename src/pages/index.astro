@@ -5,7 +5,6 @@ import previous from '../data/previous.json'
 import art from '../data/art.json'
 import talks from '../data/talks.json'
 import projectsList from '../data/projects-list.json'
-import tinyTiger from '../data/tiny-tiger.json'
 import openSource from '../data/open-source.json'
 import hacks from '../data/hacks.json'
 import security from '../data/security.json'
@@ -35,9 +34,7 @@ const renderList = (items: any[], prefix = '', options: any = {}) => {
 const introContent = `hi, my name is piérre reimertz.
 i'm a developer, designer and occasional musician.
 
-co-founder / cto at <a href="https://hifilabs.co" target="_blank">hifi labs</a>
-
-╭ current work
+╭ co-founder / cto at <a href="https://hifilabs.co" target="_blank">hifi labs</a>
 ${renderList(currentWork)}
 
 prev ╮
@@ -52,9 +49,6 @@ ${renderList(talks, '      ', { addVideoButton: true })}
 projects ╮
 ${renderList(projectsList, '         ')}
 
-╭ tiny tiger
-${renderList(tinyTiger, '', { addPlayButton: true }).replace(/target="_blank"/g, '')}
-
 ╭ open-source
 ${renderList(openSource)}
 
@@ -64,8 +58,11 @@ ${renderList(hacks, '      ')}
 security ╮
 ${renderList(security, '         ')}
 
-
-<a href="http://github.com/reimertz" target="_blank">github</a> | <a href="http://x.com/reimertz" target="_blank">x</a> | <a href="https://www.linkedin.com/in/reimertz" target="_blank">linkedin</a> | <a href="mailto:pierre.reimertz@gmail.com">contact me</a>`
+╭ connect
+├ <a href="http://github.com/reimertz" target="_blank">github</a>
+├ <a href="http://x.com/reimertz" target="_blank">x</a>
+├ <a href="https://www.linkedin.com/in/reimertz" target="_blank">linkedin</a>
+╰ <a href="mailto:pierre.reimertz@gmail.com">email</a>`
 ---
 
 <Layout title="reimertz.co">
@@ -80,61 +77,7 @@ ${renderList(security, '         ')}
     </header>
   </main>
 
-  <script is:inline define:vars={{ tinyTigerData: tinyTiger }}>
-    window.tinyTigerData = tinyTigerData
-  </script>
-
   <script>
-    import GlobalMusicPlayer from '../scripts/GlobalMusicPlayer'
-
-    declare global {
-      interface Window {
-        tinyTigerData: any
-      }
-    }
-
-    const player = new GlobalMusicPlayer(window.tinyTigerData)
-    player.start()
-
-    // Music player for tiny tiger tracks
-    const trackLinks = document.querySelectorAll('.track-link')
-
-    trackLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault()
-        const trackIndexAttr = link.getAttribute('data-track-index')
-        if (!trackIndexAttr) return
-        const trackIndex = parseInt(trackIndexAttr)
-        const playIcon = link.querySelector('.track-play')
-        if (!playIcon) return
-
-        if (player.isPlaying && player.currentTrack === trackIndex) {
-          // Pause current track
-          player.pause()
-          playIcon.textContent = '▶'
-        } else {
-          // Stop previous track
-          if (player.isPlaying) {
-            const prevLink = document.querySelector(
-              `.track-link[data-track-index="${player.currentTrack}"]`
-            )
-            if (prevLink) {
-              const prevPlayIcon = prevLink.querySelector('.track-play')
-              if (prevPlayIcon) {
-                prevPlayIcon.textContent = '▶'
-              }
-            }
-          }
-
-          // Play new track
-          player.currentTrack = trackIndex
-          player.loadTrack(trackIndex)
-          player.play()
-          playIcon.textContent = '⏸'
-        }
-      })
-    })
-
     // YouTube inline video for talks
     const videoLinks = document.querySelectorAll('.video-link')
 
@@ -150,20 +93,6 @@ ${renderList(security, '         ')}
         ) as HTMLElement | null
         if (!videoContainer) return
 
-        // Pause music if playing
-        if (player.isPlaying) {
-          player.pause()
-          const playingLink = document.querySelector(
-            `.track-link[data-track-index="${player.currentTrack}"]`
-          )
-          if (playingLink) {
-            const playingPlayIcon = playingLink.querySelector('.track-play')
-            if (playingPlayIcon) {
-              playingPlayIcon.textContent = '▶'
-            }
-          }
-        }
-
         // Toggle video
         if (
           videoContainer.style.display === 'none' ||
@@ -174,7 +103,9 @@ ${renderList(security, '         ')}
             if (v !== videoContainer) {
               const vElement = v as HTMLElement
               vElement.style.display = 'none'
-              const oldIframe = v.querySelector('iframe') as HTMLIFrameElement | null
+              const oldIframe = v.querySelector(
+                'iframe'
+              ) as HTMLIFrameElement | null
               if (oldIframe) {
                 const oldSrc = oldIframe.src
                 oldIframe.src = ''
@@ -189,7 +120,9 @@ ${renderList(security, '         ')}
           // Open this video
           videoContainer.style.display = 'block'
           toggle.textContent = '×'
-          const iframe = videoContainer.querySelector('iframe') as HTMLIFrameElement | null
+          const iframe = videoContainer.querySelector(
+            'iframe'
+          ) as HTMLIFrameElement | null
           if (iframe) {
             const originalSrc = iframe.getAttribute('src')
             if (originalSrc) {
@@ -202,7 +135,9 @@ ${renderList(security, '         ')}
           })
         } else {
           // Close this video and stop playback
-          const iframe = videoContainer.querySelector('iframe') as HTMLIFrameElement | null
+          const iframe = videoContainer.querySelector(
+            'iframe'
+          ) as HTMLIFrameElement | null
           if (iframe) {
             iframe.src = ''
           }

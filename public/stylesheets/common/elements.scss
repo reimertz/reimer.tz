@@ -11,7 +11,8 @@ html {
   background: white;
 
   @include small {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
     body {
       max-width: 80vw;
       margin-left: 10vw;
