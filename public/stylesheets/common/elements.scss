@@ -3,6 +3,15 @@
 @use 'sass:math';
 @use 'sass:list';
 
+@keyframes fadeInPage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 html {
   font: normal #{$base-size}px / #{math.div($leading, $base-size)} $base-font;
   color: black;
@@ -34,10 +43,12 @@ body {
   padding-top: 10vh;
   max-width: 90vw;
   margin: 0 auto;
-
-  transition:  background-color 500ms;
+  transition: background-color 500ms;
   flex-direction: column;
 
+  opacity: 0;
+  animation: fadeInPage 1500ms ease-out forwards;
+  will-change: opacity;
 }
 
 main, footer {
