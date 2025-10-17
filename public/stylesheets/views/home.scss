@@ -12,6 +12,9 @@ main {
 }
 
 header {
+  position: relative;
+  z-index: 100;
+
   .me {
     display: block;
   }
@@ -29,6 +32,7 @@ header {
   padding: 0;
   text-align: left;
   position: relative;
+  z-index: 1;
 
   ol {
     display: block;

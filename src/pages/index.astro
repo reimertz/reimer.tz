@@ -18,7 +18,7 @@ const renderList = (items: any[], prefix = '', options: any = {}) => {
         link = `<a href="#" class="track-link" data-track-index="${i}">${item.name} <span class="track-play">▶</span></a>`
       } else if (options.addVideoButton && item.videoId) {
         const aspectRatio = item.aspectRatio || '16 / 9'
-        const videoContainer = `<div class="inline-video" data-video-index="${i}" style="display: none;"><iframe class="youtube-iframe" style="aspect-ratio: ${aspectRatio};" src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`
+        const videoContainer = `<div class="inline-video" data-video-index="${i}" style="display: none;"><iframe class="youtube-iframe" style="aspect-ratio: ${aspectRatio};" src="https://www.youtube.com/embed/${item.videoId}?autoplay=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`
         link = `<a href="#" class="video-link" data-video-index="${i}">${item.name} <span class="video-toggle">▶</span></a>${videoContainer}`
       } else {
         link = item.url

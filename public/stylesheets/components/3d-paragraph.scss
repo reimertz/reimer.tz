@@ -9,9 +9,15 @@ p-3d-large {
   position: relative;
   will-change: transform;
   transform: translateZ(0);
+  z-index: 10;
 
   section > header > & {
     display: block;
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
   }
 
   &-medium {
@@ -38,6 +44,7 @@ p-3d-large {
     transform: translateZ(-80rem);
     opacity: 0.07;
     white-space: pre-wrap;
+    z-index: -1;
   }
 
   &.writer:before {
