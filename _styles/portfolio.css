@@ -124,6 +124,8 @@
   .track-link,
   .video-link {
     text-decoration: none;
+    pointer-events: auto !important;
+    cursor: pointer;
   }
 
   .track-play,
@@ -133,6 +135,7 @@
     transition: transform 0.2s;
     display: inline-block;
     transform: scaleX(0.7);
+    pointer-events: none !important; /* Let clicks pass through to parent link */
   }
 
   .track-link:hover .track-play,

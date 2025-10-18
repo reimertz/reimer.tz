@@ -1,0 +1,118 @@
+/* RZ-Music-Dialog Component Styles */
+
+rz-music-dialog {
+  display: none;
+}
+
+.music-dialog {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  border: 1px solid var(--color-text);
+  border-radius: 50px; /* Pill shape */
+  padding: 0;
+  max-width: 600px;
+  width: auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle drop shadow */
+}
+
+.music-dialog::backdrop {
+  background: transparent; /* No backdrop */
+}
+
+.dialog-content {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+}
+
+.dialog-close {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--color-text);
+  line-height: 1;
+  padding: 0;
+  order: 3;
+  font-family: var(--font-mono);
+}
+
+.dialog-close:hover {
+  color: var(--color-red);
+}
+
+.now-playing {
+  text-align: center;
+  order: 1;
+}
+
+.now-playing h2 {
+  display: none;
+}
+
+.now-playing .track-name {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  order: 2;
+}
+
+.controls button {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 0;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controls button:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.controls .btn-play-pause {
+  padding: 0.25rem 1rem;
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .music-dialog {
+    bottom: 1rem;
+    max-width: 90vw;
+  }
+
+  .dialog-content {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    gap: 1rem;
+  }
+
+  .controls button {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .now-playing .track-name {
+    font-size: 0.875rem;
+  }
+}

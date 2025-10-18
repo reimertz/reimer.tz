@@ -3,3 +3,18 @@
 rz-video-embed {
   display: contents; /* Pass-through container */
 }
+
+/* Ensure video links are clickable */
+rz-video-embed .video-link {
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto !important;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Let clicks pass through to parent link */
+rz-video-embed .video-toggle,
+rz-video-embed .video-link * {
+  pointer-events: none !important;
+}

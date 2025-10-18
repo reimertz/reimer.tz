@@ -75,12 +75,21 @@ rz-3d > *:not(.rz-3d-shadow) {
   position: relative;
   z-index: 1;
   pointer-events: auto;
+  transform: translateZ(1px); /* Bring forward in 3D space */
 }
 
-/* Force links to be clickable */
+/* Force links to be ALWAYS clickable - very aggressive */
 rz-3d a {
   position: relative;
-  z-index: 10;
-  pointer-events: auto;
+  z-index: 999;
+  pointer-events: auto !important;
   cursor: pointer;
+  transform: translateZ(10px); /* Bring links forward in 3D space */
+  display: inline-block; /* Make entire area clickable */
+}
+
+/* Make link children NOT block clicks */
+rz-3d a span,
+rz-3d a * {
+  pointer-events: none !important; /* Let ALL clicks pass through to parent <a> */
 }

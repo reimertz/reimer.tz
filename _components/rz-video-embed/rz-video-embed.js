@@ -18,16 +18,31 @@ class RZVideoEmbed extends HTMLElement {
     videoLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault()
+        e.stopPropagation()
+
+        console.log('[rz-video-embed] Video link clicked')
+
         const videoIndex = link.getAttribute('data-video-index')
-        if (!videoIndex) return
+        if (!videoIndex) {
+          console.log('[rz-video-embed] No video index found')
+          return
+        }
 
         const toggle = link.querySelector('.video-toggle')
-        if (!toggle) return
+        if (!toggle) {
+          console.log('[rz-video-embed] No toggle found')
+          return
+        }
 
         const videoContainer = this.querySelector(
           `.inline-video[data-video-index="${videoIndex}"]`
         )
-        if (!videoContainer) return
+        if (!videoContainer) {
+          console.log('[rz-video-embed] No video container found for index:', videoIndex)
+          return
+        }
+
+        console.log('[rz-video-embed] Toggling video', videoIndex)
 
         // Toggle video
         if (videoContainer.style.display === 'none' || !videoContainer.style.display) {
