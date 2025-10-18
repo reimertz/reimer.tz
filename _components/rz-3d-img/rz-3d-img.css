@@ -1,0 +1,30 @@
+/* RZ-3D-IMG Component Styles */
+
+rz-3d-img {
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  width: 30rem;
+  height: 30rem;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+rz-3d-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Mobile responsive */
+@media only screen and (max-width: 480px) {
+  rz-3d-img {
+    width: 20rem;
+    height: 20rem;
+    border-width: 20px;
+  }
+}

@@ -1,0 +1,16 @@
+/* RZ-Colorize Component Styles */
+
+rz-colorize {
+  display: contents; /* Pass-through container */
+}
+
+/* Colorized link styles */
+rz-colorize a[data-colorizer-init] {
+  display: inline-block;
+  padding: 2px 16px; /* Add vertical padding */
+  margin: 4px 0; /* Add vertical margin for spacing */
+  border-radius: 16px;
+  will-change: color, background-color;
+  transition: color 0.2s, background-color 0.2s;
+  line-height: 1.4; /* Override parent line-height */
+}

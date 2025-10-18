@@ -1,23 +1,19 @@
 {
-  "name": "reimertz-co",
+  "name": "native-html-starter",
+  "version": "1.0.0",
+  "description": "Buildless web starter with native APIs",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "npm run compile:css && astro dev",
-    "start": "astro dev",
-    "build": "npm run compile:css && astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "compile:css": "sass public/stylesheets/builder.scss public/stylesheets/styles.css"
+    "dev": "python3 -m http.server 8000",
+    "dev:node": "npx --yes http-server -p 8000 -c-1",
+    "dev:php": "php -S localhost:8000"
   },
-  "dependencies": {
-    "@astrojs/cloudflare": "^12.6.10",
-    "astro": "^5.14.4",
-    "sass": "^1.89.0"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "typescript": "^5.6.3",
-    "wrangler": "^4.42.2"
-  }
+  "keywords": [
+    "web-components",
+    "native",
+    "buildless",
+    "es-modules"
+  ],
+  "author": "",
+  "license": "MIT"
 }

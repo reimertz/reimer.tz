@@ -1,7 +1,0 @@
-{
-  "extends": "astro/tsconfigs/strict",
-  "exclude": [
-    "public/scripts/**/*",
-    "public/where-is-pieter-levels/**/*"
-  ]
-}

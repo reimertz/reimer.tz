@@ -1,26 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm create:*)",
-      "Bash(mv:*)",
-      "Bash(true)",
-      "Bash(rm:*)",
-      "Bash(mkdir:*)",
-      "Bash(cp:*)",
-      "Bash(npx create-astro:*)",
-      "Bash(ls:*)",
-      "Bash(npm install)",
-      "Bash(npm install:*)",
-      "Bash(npx sass:*)",
-      "Bash(npm run dev:*)",
-      "Bash(npm run build:*)",
-      "Bash(npx browserify:*)",
-      "Bash(npm run preview:*)",
-      "WebFetch(domain:localhost)",
-      "Bash(find:*)",
-      "Bash(curl:*)",
-      "WebFetch(domain:github.com)"
-    ]
-  },
-  "enableAllProjectMcpServers": false
+      "Bash(cp:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
 }

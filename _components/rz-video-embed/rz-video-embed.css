@@ -1,0 +1,5 @@
+/* RZ-Video-Embed Component Styles */
+
+rz-video-embed {
+  display: contents; /* Pass-through container */
+}
