@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -6,7 +6,7 @@
   <meta name="author" content="Piérre Reimertz" />
   <title>tiny tiger</title>
 
-  <link rel="stylesheet" href="/_styles/portfolio.css" />
+  <link rel="stylesheet" href="/_styles/index.css" />
   <link rel="stylesheet" href="/_components/rz-3d/rz-3d.css" />
   <link rel="stylesheet" href="/_components/rz-3d-img/rz-3d-img.css" />
   <link rel="stylesheet" href="/_components/rz-colorize/rz-colorize.css" />
@@ -15,14 +15,23 @@
   <body>
     <rz-music-player>
       <rz-track name="unnamed (demo)" audio-src="/demos/tiny_tiger_demo_1.mp3"></rz-track>
-      <rz-track name="lansvag 205 (demo)" video-src="https://pub-8c16a53abaab4a5faa0447ac79e7b835.r2.dev/Pierre_Reimertz_Lansvag_205_small.mp4" aspect-ratio="9/16"></rz-track>
+      <rz-track
+        name="lansvag 205 (demo)"
+        video-src="https://pub-8c16a53abaab4a5faa0447ac79e7b835.r2.dev/Pierre_Reimertz_Lansvag_205_small.mp4"
+        aspect-ratio="9/16"
+      ></rz-track>
     </rz-music-player>
 
     <rz-colorize mode="multi" target="background">
-    <rz-3d>
-      <header>
-        <rz-3d-img src="https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail" alt="Pierre Reimertz"></rz-3d-img>
-        <div style="white-space: pre-wrap; font-family: monospace; line-height: 2.1;">tiny tiger - demos / unreleased tracks
+      <rz-3d>
+        <header>
+          <rz-3d-img
+            src="https://cdn.hifilabs.co/08845e7b-79c4-4e0f-c102-0f9ce6cd1000/thumbnail"
+            alt="Pierre Reimertz"
+          ></rz-3d-img>
+          <pre
+            style="white-space: pre-wrap; font-family: monospace; line-height: 2.1"
+          >tiny tiger - demos / unreleased tracks
 
 ⚠️  please don't share this page
 
@@ -30,18 +39,18 @@
 ├ <a href="#" class="track-link" data-track-index="0">unnamed (demo) <span class="track-play">▶</span></a>
 ╰ <a href="#" class="track-link" data-track-index="1">lansvag 205 (demo) <span class="track-play">▶</span></a>
 
-<a href="/">← back home</a></div>
-      </header>
-    </rz-3d>
+<a href="/">← back home</a></pre>
+        </header>
+      </rz-3d>
     </rz-colorize>
 
     <!-- Load components -->
     <script type="module">
-      import '/_components/rz-3d/rz-3d.js';
-      import '/_components/rz-3d-img/rz-3d-img.js';
-      import '/_components/rz-colorize/rz-colorize.js';
-      import '/_components/rz-music-player/rz-music-player.js';
-      import initPageTransitions from '/_lib/page-transitions.js';
+      import '/_components/rz-3d/rz-3d.js'
+      import '/_components/rz-3d-img/rz-3d-img.js'
+      import '/_components/rz-colorize/rz-colorize.js'
+      import '/_components/rz-music-player/rz-music-player.js'
+      import initPageTransitions from '/_lib/page-transitions.js'
 
       // Scroll to top immediately
       window.scrollTo(0, 0)
@@ -57,37 +66,39 @@
       initPageTransitions()
 
       // Music player controls
-      const trackLinks = document.querySelectorAll('.track-link');
+      const trackLinks = document.querySelectorAll('.track-link')
 
       trackLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const player = window._musicPlayer;
-          if (!player) return;
+          e.preventDefault()
+          const player = window._musicPlayer
+          if (!player) return
 
-          const trackIndex = parseInt(link.getAttribute('data-track-index'));
-          const playIcon = link.querySelector('.track-play');
-          if (!playIcon) return;
+          const trackIndex = parseInt(link.getAttribute('data-track-index'))
+          const playIcon = link.querySelector('.track-play')
+          if (!playIcon) return
 
           if (player.isPlaying && player.currentTrack === trackIndex) {
-            player.pause();
-            playIcon.textContent = '▶';
+            player.pause()
+            playIcon.textContent = '▶'
           } else {
             if (player.isPlaying) {
-              const prevLink = document.querySelector(`.track-link[data-track-index="${player.currentTrack}"]`);
+              const prevLink = document.querySelector(
+                `.track-link[data-track-index="${player.currentTrack}"]`
+              )
               if (prevLink) {
-                const prevPlayIcon = prevLink.querySelector('.track-play');
-                if (prevPlayIcon) prevPlayIcon.textContent = '▶';
+                const prevPlayIcon = prevLink.querySelector('.track-play')
+                if (prevPlayIcon) prevPlayIcon.textContent = '▶'
               }
             }
 
-            player.currentTrack = trackIndex;
-            player.loadTrack(trackIndex);
-            player.play();
-            playIcon.textContent = '⏸';
+            player.currentTrack = trackIndex
+            player.loadTrack(trackIndex)
+            player.play()
+            playIcon.textContent = '⏸'
           }
-        });
-      });
+        })
+      })
     </script>
   </body>
 </html>
