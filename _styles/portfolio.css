@@ -1,0 +1,247 @@
+/* Portfolio Styles - Clean & Modern */
+
+@layer base, components;
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  :root {
+    --color-green: #1BFF90;
+    --color-red: #ee324b;
+    --color-pink: #DA28CB;
+    --color-yellow: #ffe066;
+    --color-blue: #247ba0;
+    --color-bg: #fff;
+    --color-text: #000;
+    --font-mono: monospace;
+    --max-width: 60rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font: normal 15px/1.5 var(--font-mono);
+    color: var(--color-text);
+    background: var(--color-bg);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-anchor: none; /* Prevent scroll anchoring */
+  }
+
+  @media only screen and (max-width: 480px) {
+    html {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media only screen and (min-width: 1110px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+
+  body {
+    margin: 0 auto;
+    padding: 10vh 0 5vh;
+    max-width: 90vw;
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body.loaded {
+    opacity: 1;
+  }
+
+  main {
+    display: block;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Typography */
+  a {
+    color: var(--color-green);
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Utility Classes */
+  .green { color: var(--color-green); }
+  .red { color: var(--color-red); }
+  .pink { color: var(--color-pink); }
+  .yellow { color: var(--color-yellow); }
+  .blue { color: var(--color-blue); }
+
+  /* View Transitions API animations */
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+  }
+}
+
+/* ============================================
+   COMPONENTS
+   ============================================ */
+
+@layer components {
+  /* Header */
+  header {
+    text-align: left;
+    margin-bottom: 4rem;
+  }
+
+
+  /* Video/Track Links */
+  .inline-video {
+    margin: 1rem 0 1rem 2rem;
+    width: 100%;
+  }
+
+  .youtube-iframe {
+    max-width: 100%;
+    max-height: 100vh;
+    display: block;
+    border-radius: 4px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .track-link,
+  .video-link {
+    text-decoration: none;
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+
+  .track-play,
+  .video-toggle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    transition: transform 0.2s;
+    display: inline-block;
+    transform: scaleX(0.7);
+    pointer-events: none !important; /* Let clicks pass through to parent link */
+  }
+
+  .track-link:hover .track-play,
+  .video-link:hover .video-toggle {
+    transform: scaleX(0.7) scale(1.2);
+  }
+
+  /* Projects Grid */
+  .projects {
+    padding: 0;
+    text-align: left;
+    position: relative;
+  }
+
+  .projects ol {
+    display: block;
+    list-style: none;
+    padding: 0;
+  }
+
+  .projects .project {
+    display: inline-block;
+    position: relative;
+    margin: 0 2rem 2rem 0;
+  }
+
+  body[data-project-is-hovered="true"] .projects .project:not(:hover) img {
+    opacity: 0.3;
+  }
+
+  .projects .project:hover {
+    z-index: 10;
+  }
+
+  .projects .project:hover span {
+    opacity: 1;
+  }
+
+  .projects .project:hover img {
+    opacity: 1;
+  }
+
+  .projects .project img {
+    transition: opacity 250ms;
+    height: 175px;
+    display: inline-block;
+    opacity: 0.65;
+  }
+
+  .projects .project span {
+    padding: 1rem;
+    top: 100%;
+    pointer-events: none;
+    background: var(--color-bg);
+    color: var(--color-text);
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 250ms;
+    font-size: 1.2rem;
+  }
+
+  .projects .project span b {
+    color: var(--color-green);
+    font-size: 2rem;
+  }
+
+  /* Mobile Responsive */
+  @media only screen and (max-width: 480px) {
+    body {
+      max-width: 80vw;
+      margin-left: 10vw;
+    }
+
+    .projects .project {
+      display: block;
+      margin-bottom: 3rem;
+    }
+
+    .projects .project img {
+      max-width: 50%;
+      height: auto;
+    }
+
+    .projects .project span {
+      position: static;
+      opacity: 1;
+      display: inline;
+      width: 50%;
+      vertical-align: top;
+    }
+  }
+
+  /* Music Player Indicator */
+  body[data-music-playing="true"]::before {
+    content: "♪";
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: var(--color-green);
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+}

@@ -1,0 +1,95 @@
+/* RZ-3D Component Styles */
+
+rz-3d {
+  display: block;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: relative;
+  transition: transform 200ms;
+  max-width: 60rem;
+  width: 100%;
+  will-change: transform; /* Optimize 3D transform performance */
+}
+
+/* Shadow styling - base styles for all layers */
+rz-3d .rz-3d-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  color: #000;
+  contain: layout style paint; /* Optimize rendering */
+
+  /* Fade in animation */
+  opacity: 0;
+  animation: shadowFadeIn 750ms ease-out forwards;
+  /* animation-delay set per-layer in JS */
+}
+
+@keyframes shadowFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--final-opacity);
+  }
+}
+
+/* Ensure shadow content inherits styles */
+rz-3d .rz-3d-shadow * {
+  color: #999; /* Gray shadow text */
+}
+
+/* Ensure shadow links don't get colorized */
+rz-3d .rz-3d-shadow a {
+  color: #999 !important;
+  background-color: transparent !important;
+}
+
+/* Make sure pre elements in shadow are visible */
+rz-3d .rz-3d-shadow pre {
+  color: #999;
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+/* Ensure video containers don't appear in shadow */
+rz-3d .rz-3d-shadow .inline-video {
+  display: none !important;
+}
+
+/* Apply 3D to all children */
+rz-3d * {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Ensure main content is above shadows and clickable */
+rz-3d > *:not(.rz-3d-shadow) {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  transform: translateZ(1px); /* Bring forward in 3D space */
+}
+
+/* Force links to be ALWAYS clickable - very aggressive */
+rz-3d a {
+  position: relative;
+  z-index: 999;
+  pointer-events: auto !important;
+  cursor: pointer;
+  transform: translateZ(10px); /* Bring links forward in 3D space */
+  display: inline-block; /* Make entire area clickable */
+}
+
+/* Make link children NOT block clicks */
+rz-3d a span,
+rz-3d a * {
+  pointer-events: none !important; /* Let ALL clicks pass through to parent <a> */
+}
