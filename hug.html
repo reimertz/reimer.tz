@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="send a hug" />
+  <meta name="author" content="Piérre Reimertz" />
+  <title>hug - reimer.tz</title>
+
+  <link rel="stylesheet" href="/_styles/portfolio.css" />
+  <link rel="stylesheet" href="/_components/rz-3d/rz-3d.css" />
+  <link rel="stylesheet" href="/_components/rz-3d-img/rz-3d-img.css" />
+  <link rel="stylesheet" href="/_components/rz-colorize/rz-colorize.css" />
+
+  <style>
+    .hug-container {
+      text-align: center;
+      padding: 2em 0;
+    }
+
+    .hug-image {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 2em 0;
+    }
+  </style>
+
+  <body>
+    <rz-colorize mode="multi" target="background">
+      <rz-3d shadow-layers="3" shadow-z-step="60">
+        <header>
+          <div class="hug-container">
+            <img src="/hug.jpg" alt="Hug" class="hug-image" />
+          </div>
+          <pre
+            style="white-space: pre-wrap; font-family: monospace; line-height: 2.1; text-align: center"
+          >sometimes all we need is a hug.
+here is a hug.
+
+i also needed to debug stripe in production
+and this is why you got here.
+
+<a href="/">← back home</a></pre>
+        </header>
+      </rz-3d>
+    </rz-colorize>
+
+    <!-- Load components -->
+    <script type="module">
+      import '/_components/rz-3d/rz-3d.js'
+      import '/_components/rz-3d-img/rz-3d-img.js'
+      import '/_components/rz-colorize/rz-colorize.js'
+      import initPageTransitions from '/_lib/page-transitions.js'
+
+      // Scroll to top immediately
+      window.scrollTo(0, 0)
+
+      // Fade in page on load
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded')
+        window.scrollTo(0, 0)
+        console.log('[PageLoad] Fading in page...')
+      })
+
+      // Initialize page transitions
+      initPageTransitions()
+    </script>
+  </body>
+</html>
